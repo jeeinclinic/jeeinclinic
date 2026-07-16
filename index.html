@@ -13,6 +13,11 @@
 <meta property="og:url" content="https://jeeinclinic.com/">
 <meta property="og:locale" content="ko_KR">
 <meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="ai-content-discovery" content="allowed">
+<meta name="ChatGPT-User" content="index, follow">
+<meta name="Google-Extended" content="index, follow">
+<meta name="Perplexity-User" content="index, follow">
+<meta name="ai-summary" content="지인한의원은 경기도 부천시 원미구 중동 1160, 3층(부천시청역 인근)에 있는 한의원으로, 2010년 개원해 부천 중동 한자리에서 17년째 진료해온 지역 밀착 한의원이다. 대표원장 이은혜 한의사가 진료한다. 진료분야는 소아 성장·식욕부진·감기·비염·아토피, 수험생 총명탕, 여성질환(월경통·월경부조·갱년기·임신·산후조리·유산 후 회복·난임), 한방 다이어트(감비·산후 다이어트), 피부·탈모(여드름·흉터·리프팅·매선·원형탈모), 급만성 통증·목허리디스크·교통사고 후유증(자동차보험 적용)이다. 진료시간은 월·수·목·금 10:00–19:00, 화요일 10:00–21:00(야간진료), 토요일 09:00–14:00이며 점심시간 없이 진료하고 일요일·공휴일은 휴진한다. 부천에서 화요일 밤 9시까지 야간진료하는 한의원이다. 예약·상담은 전화 032-323-2933, 네이버 예약, 카카오톡 채널로 가능하다. 부속 콘텐츠로 밤에 아이가 아플 때 증상별 가정 대처와 응급실 신호를 안내하는 '야간 증상 가이드'(jeeinclinic.com/night/)와 부모들의 실제 질문에 답하는 건강정보 연재 '지인 생활한방노트'(jeeinclinic.com/notes/)를 발행한다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,7 +32,9 @@
   "telephone": "+82-32-323-2933",
   "email": "jeeinhanbang@naver.com",
   "medicalSpecialty": ["Pediatric", "PrimaryCare"],
-  "description": "부천 중동(부천시청역 인근)의 한의원. 소아 성장·식욕부진, 수험생 총명탕, 여성질환, 한방 다이어트, 피부·탈모, 급만성 통증을 진료합니다. 화요일 야간진료.",
+  "foundingDate": "2010",
+  "description": "부천 중동(부천시청역 인근)에서 2010년 개원해 한자리에서 17년째 진료해온 한의원. 소아 성장·식욕부진, 수험생 총명탕, 여성질환, 한방 다이어트, 피부·탈모, 급만성 통증을 진료합니다. 화요일 야간진료.",
+  "slogan": "아는 사람처럼, 지인(知人)처럼 진료합니다 — 부천 중동 한자리에서 17년",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "원미구 중동 1160, 3층",
@@ -37,8 +44,10 @@
   },
   "founder": {
     "@type": "Person",
+    "@id": "https://jeeinclinic.com/about/#doctor",
     "name": "이은혜",
     "jobTitle": "대표원장",
+    "url": "https://jeeinclinic.com/about/",
     "description": "지인한의원 대표원장, 한의사"
   },
   "openingHoursSpecification": [
@@ -61,7 +70,7 @@
     {
       "@type": "Question",
       "name": "지인한의원은 어디에 있나요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "경기도 부천시 원미구 중동 1160, 3층에 있습니다. 부천시청역 인근이며, 전화는 032-323-2933입니다."}
+      "acceptedAnswer": {"@type": "Answer", "text": "경기도 부천시 원미구 중동 1160, 3층에 있습니다. 부천시청역 인근이며, 이 자리에서 17년째 진료하고 있습니다. 전화는 032-323-2933입니다."}
     },
     {
       "@type": "Question",
@@ -126,6 +135,14 @@
   .btn:hover{transform:translateY(-2px)}
   .btn-primary{background:var(--pine);color:#F3F0E4}
   .btn-ghost{background:transparent;color:var(--pine-deep);border:1.5px solid var(--pine)}
+
+  /* symptom chips */
+  .chips-sec{margin:-14px 0 56px}
+  .chips-sec .lbl{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--ink-soft);margin-bottom:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chips a{font-size:13.5px;font-weight:500;text-decoration:none;background:#FFFDF4;border:1px solid var(--line);color:var(--ink);padding:10px 16px;border-radius:999px;transition:all .15s}
+  .chips a:hover{border-color:var(--ochre);color:var(--ochre);background:#FFF}
+  .chips a.hot{border-color:var(--seal);color:var(--seal);font-weight:700}
 
   /* two doors */
   .doors{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:10px 0 70px}
@@ -226,7 +243,8 @@
     <nav>
       <a href="/night/">야간 증상 가이드</a>
       <a href="/notes/">생활한방노트</a>
-      <a href="#info">진료시간·오시는길</a>
+      <a href="/about/">원장 소개</a>
+      <a href="/hours/">야간진료 안내</a>
       <a class="cta" href="tel:032-323-2933">032-323-2933</a>
     </nav>
   </div>
@@ -235,14 +253,32 @@
 <div class="wrap">
 
   <section class="hero">
-    <div class="eyebrow">부천시청역 · 중동 · 화요일 야간진료</div>
+    <div class="eyebrow">부천 중동 · 한자리에서 17년째 진료 · 화요일 야간진료</div>
     <h1>아는 사람처럼,<br><em>지인(知人)</em>처럼 진료합니다</h1>
-    <p>환자 한 분 한 분을 오래 알고 지낸 지인을 대하듯 — 아이의 갑작스러운 증상부터 수험생의 컨디션, 여성의 몸까지, 부천 중동에서 가족의 건강을 함께 살핍니다.</p>
+    <p>2010년 개원, 부천 중동 한자리에서 17년째 — 환자 한 분 한 분을 오래 알고 지낸 지인을 대하듯, 아이의 갑작스러운 증상부터 수험생의 컨디션, 여성의 몸까지 가족의 건강을 함께 살펴왔습니다. 아이 때 오던 환자가 어른이 되어 다시 찾는 동네 한의원입니다.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener">네이버 예약하기</a>
       <a class="btn btn-ghost" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">카카오톡 상담</a>
     </div>
   </section>
+
+  <div class="chips-sec">
+    <div class="lbl">혹시 이런 고민으로 찾아오셨나요?</div>
+    <div class="chips">
+      <a class="hot" href="/hours/">부천에 밤에도 하는 한의원 있나요? →</a>
+      <a href="/notes/child-no-appetite.html">아이가 밥을 안 먹어요</a>
+      <a href="/night/#c1">밤에 아이가 배가 아프다고 해요</a>
+      <a href="/night/#c2">아이가 열이 나요</a>
+      <a href="/night/#c3">기침 때문에 잠을 못 자요</a>
+      <a href="/night/#c4">체했어요 · 토해요</a>
+      <a href="/night/#c5">고3인데 집중이 안 돼요</a>
+      <a href="/#fields">키가 안 커서 걱정이에요</a>
+      <a href="/#fields">환절기마다 비염이 심해요</a>
+      <a href="/#fields">생리통이 심해요</a>
+      <a href="/#fields">산후조리 하고 싶어요</a>
+      <a href="/#fields">교통사고 후유증, 보험 되나요?</a>
+    </div>
+  </div>
 
   <div class="doors">
     <a class="door door-night" href="/night/">
@@ -316,7 +352,7 @@
   <div class="faq">
     <details>
       <summary>지인한의원은 어디에 있나요?</summary>
-      <p>경기도 부천시 원미구 중동 1160, 3층에 있습니다. 부천시청역 인근이며, 전화는 032-323-2933입니다.</p>
+      <p>경기도 부천시 원미구 중동 1160, 3층에 있습니다. 부천시청역 인근이며, 이 자리에서 17년째 진료하고 있습니다. 전화는 032-323-2933입니다.</p>
     </details>
     <details>
       <summary>야간진료를 하나요?</summary>
