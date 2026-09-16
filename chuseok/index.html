@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지인한의원 한가위 이벤트 | 공진단·경옥고</title>
+<meta name="description" content="지인한의원 한가위 명절 이벤트 — 녹용공진단, 총명공진단, 분골공진단, 사향공진단, 지인공진단, 경옥고, 녹용경옥고, 쌍화차. 10월 10일까지 조기 소진 시 마감.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --paper:#F6F1E4;
+    --paper-2:#EFE7D2;
+    --ink:#2B3524;
+    --ink-soft:#5B6350;
+    --pine:#435A3C;
+    --pine-deep:#324030;
+    --jujube:#B33F2E;
+    --gold:#C99A3E;
+    --line:#DCD0AD;
+    --shadow: 0 1px 0 rgba(43,53,36,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Gowun Dodum','Noto Sans KR',sans-serif;
+    padding-inline:20px; padding-block:28px; line-height:1.62;
+  }
+  img,svg{max-width:100%;}
+  .wrap{max-width:560px;margin:0 auto;}
+  h1,h2,h3{font-family:'Gowun Batang','Noto Serif KR',serif;font-weight:700;text-wrap:balance;margin:0;}
+  p{margin:0;}
+  .eyebrow{font-size:12.5px;letter-spacing:.14em;color:var(--pine);font-weight:700;}
+
+  /* hero */
+  .hero{position:relative;padding-block:8px 26px;border-bottom:1px solid var(--line);margin-block-end:28px;overflow:hidden;}
+  .moon{position:absolute;top:-38px;right:-38px;width:150px;height:150px;border-radius:50%;
+    background:radial-gradient(circle at 35% 32%, var(--gold), transparent 68%);opacity:.55;z-index:0;}
+  .hero-inner{position:relative;z-index:1;}
+  .hero h1{font-size:32px;line-height:1.32;margin-block:10px 14px;}
+  .hero h1 em{font-style:normal;color:var(--jujube);}
+  .hero p{max-width:46ch;color:var(--ink-soft);font-size:15px;}
+  .hero .quote{margin-block-start:14px;font-size:13.5px;color:var(--ink-soft);}
+  .branch{margin-block-start:18px;display:block;}
+
+  /* urgency banner */
+  .urgency{
+    display:flex;align-items:center;gap:12px;
+    background:var(--jujube);color:#FBF6EE;
+    border-radius:14px;padding:14px 18px;margin-block-end:34px;
+  }
+  .urgency .dot{width:8px;height:8px;border-radius:50%;background:#FBF6EE;flex:none;}
+  .urgency b{font-family:'Gowun Batang',serif;font-size:15.5px;}
+  .urgency span.small{display:block;font-size:12.5px;opacity:.85;margin-block-start:2px;}
+
+  .section{margin-block-end:38px;}
+  .section-head{margin-block-end:14px;}
+  .section-head h2{font-size:20px;margin-block-start:4px;}
+  .section-head .sub{color:var(--ink-soft);font-size:13.5px;margin-block-start:4px;display:block;}
+
+  /* product cards */
+  .products{display:flex;flex-direction:column;gap:12px;}
+  .product{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);}
+  .product-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .product h3{font-size:16.5px;}
+  .product .note{font-size:12px;color:var(--ink-soft);}
+  .price-list{margin-block-start:10px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding-block:7px;border-top:1px solid var(--line);gap:10px;}
+  .price-row:first-child{border-top:none;}
+  .qty{font-size:13.5px;color:var(--ink-soft);flex:none;}
+  .price{font-variant-numeric:tabular-nums;text-align:right;}
+  .price .orig{color:var(--ink-soft);text-decoration:line-through;font-weight:400;font-size:12.5px;margin-inline-end:6px;}
+  .price .final{color:var(--jujube);font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;}
+
+  /* CTA */
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .btn{flex:1;min-width:130px;text-align:center;text-decoration:none;font-family:'Gowun Dodum',sans-serif;
+    font-size:14.5px;font-weight:700;padding:12px 14px;border-radius:10px;}
+  .btn-primary{background:var(--jujube);color:#FBF6EE;}
+  .btn-kakao{background:var(--gold);color:#2B3524;}
+  .btn-secondary{background:transparent;border:1px solid var(--pine);color:var(--pine);}
+
+  /* untact diet card */
+  .diet{background:var(--pine);color:var(--paper);border-radius:16px;padding:22px 20px;}
+  .diet .eyebrow{color:var(--gold);}
+  .diet h3{font-size:19px;color:var(--paper);margin-block:8px 10px;}
+  .diet ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;}
+  .diet ul li::before{content:"· ";color:var(--gold);}
+  .diet .cta-row{margin-block-start:16px;}
+  .diet .btn-primary{background:var(--gold);color:#2B3524;}
+
+  /* contact */
+  .contact{background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+  .contact h3{font-size:18px;margin-block-end:14px;}
+  .info-row{display:flex;gap:10px;padding-block:9px;border-top:1px solid var(--line);font-size:14.5px;}
+  .info-row:first-of-type{border-top:none;}
+  .info-row .k{flex:none;width:64px;color:var(--ink-soft);font-size:13px;letter-spacing:.03em;}
+  .info-row .v{flex:1;}
+  .map-link{display:inline-block;margin-block-start:12px;font-size:13.5px;color:var(--pine);text-decoration:underline;text-underline-offset:3px;}
+
+  footer{margin-block-start:36px;padding-block-start:18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);text-align:center;}
+  footer .optout{display:block;margin-block-start:6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="moon" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">17년 전통 · 2026 한가위맞이</p>
+      <h1>원가가 올라도<br>가격은 그대로,<br><em>정성만 더한 한가위</em></h1>
+      <p>대추, 생강, 감초처럼 명절 밥상에 오르는 것들이 원래 몸을 챙기는 약재였듯 — 지인한의원이 정성을 담아 한가위 이벤트를 준비했습니다.</p>
+      <p class="quote">"원가 상승에도 동일 가격으로 준비했으니, 건강해지시는 한가위 되시기를 바랍니다."</p>
+
+      <svg class="branch" width="140" height="46" viewBox="0 0 140 46" fill="none" aria-hidden="true">
+        <path d="M4 40 C 30 20, 60 34, 88 14 S 130 6, 136 4" stroke="#435A3C" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="34" cy="27" r="6" fill="#B33F2E"/>
+        <circle cx="66" cy="21" r="5" fill="#B33F2E"/>
+        <circle cx="100" cy="10" r="6.5" fill="#B33F2E"/>
+        <path d="M28 22 q6 -8 12 -2" stroke="#435A3C" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M92 8 q6 -7 12 -1" stroke="#435A3C" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="urgency">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <b>조기 소진 시 마감 · 10월 10일까지</b>
+      <span class="small">공진단·경옥고는 준비 수량이 한정되어 있습니다</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <p class="eyebrow">공진단 라인업</p>
+      <h2>기력보강부터 수험생 컨디션까지</h2>
+    </div>
+    <div class="products">
+      <div class="product">
+        <div class="product-head">
+          <h3>녹용공진단 · 총명공진단</h3>
+          <span class="note">기력보강 / 수험생</span>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">10환</span><span class="price"><span class="final">20만원</span></span></div>
+          <div class="price-row"><span class="qty">30환</span><span class="price"><span class="orig">60만원</span><span class="final">50만원</span></span></div>
+          <div class="price-row"><span class="qty">100환</span><span class="price"><span class="orig">200만원</span><span class="final">140만원</span></span></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-head">
+          <h3>분골공진단</h3>
+          <span class="note">러시아 분골</span>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">10환</span><span class="price"><span class="final">30만원</span></span></div>
+          <div class="price-row"><span class="qty">30환</span><span class="price"><span class="orig">90만원</span><span class="final">75만원</span></span></div>
+          <div class="price-row"><span class="qty">100환</span><span class="price"><span class="orig">300만원</span><span class="final">210만원</span></span></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-head"><h3>사향공진단</h3></div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">10환</span><span class="price"><span class="final">45만원</span></span></div>
+          <div class="price-row"><span class="qty">30환</span><span class="price"><span class="orig">135만원</span><span class="final">120만원</span></span></div>
+          <div class="price-row"><span class="qty">100환</span><span class="price"><span class="orig">450만원</span><span class="final">350만원</span></span></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-head"><h3>지인공진단</h3></div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">10환</span><span class="price"><span class="final">60만원</span></span></div>
+          <div class="price-row"><span class="qty">30환</span><span class="price"><span class="orig">180만원</span><span class="final">145만원</span></span></div>
+          <div class="price-row"><span class="qty">100환</span><span class="price"><span class="orig">600만원</span><span class="final">450만원</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <p class="eyebrow">경옥고 · 쌍화차</p>
+      <h2>온 가족이 나눠 마시는 보양</h2>
+    </div>
+    <div class="products">
+      <div class="product">
+        <div class="product-head"><h3>경옥고</h3></div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">30포 (1상자)</span><span class="price"><span class="final">11만원</span></span></div>
+          <div class="price-row"><span class="qty">60포 (2상자)</span><span class="price"><span class="orig">22만원</span><span class="final">20만원</span></span></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-head"><h3>녹용경옥고</h3></div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">30포 (1상자)</span><span class="price"><span class="orig">22만원</span><span class="final">20만원</span></span></div>
+          <div class="price-row"><span class="qty">60포 (2상자)</span><span class="price"><span class="orig">44만원</span><span class="final">36만원</span></span></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-head"><h3>쌍화차</h3></div>
+        <div class="price-list">
+          <div class="price-row"><span class="qty">20포</span><span class="price"><span class="final">8만원</span></span></div>
+          <div class="price-row"><span class="qty">30포</span><span class="price"><span class="final">11만원</span></span></div>
+          <div class="price-row"><span class="qty">40포</span><span class="price"><span class="final">15만원</span></span></div>
+          <div class="price-row"><span class="qty">60포</span><span class="price"><span class="final">21만원</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="cta-row">
+      <a class="btn btn-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">카카오톡 문의</a>
+      <a class="btn btn-primary" href="tel:0323232933">전화 상담</a>
+    </div>
+  </div>
+
+  <div class="section diet">
+    <p class="eyebrow">비대면 진료</p>
+    <h3>다이어트, 집에서도 진료받으세요</h3>
+    <ul>
+      <li>비대면 진료 가능</li>
+      <li>3개월 처방 할인 이벤트 진행 중</li>
+      <li>소개 이벤트 진행 중</li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf_XNWKnrjTWaB_QKImlPuBaFSbcY7Q1gWxuLRVtjF9YoySIA/viewform?usp=header" target="_blank" rel="noopener">비대면 주문 신청</a>
+    </div>
+  </div>
+
+  <div class="section contact">
+    <h3>지인한의원</h3>
+    <div class="info-row"><span class="k">주소</span><span class="v">경기도 부천시 원미구 소향로 135, 3층 (7호선 부천시청역 2번 출구 도보 3분)</span></div>
+    <div class="info-row"><span class="k">전화</span><span class="v">032-323-2933</span></div>
+    <div class="info-row"><span class="k">문자</span><span class="v">010-9954-1075</span></div>
+    <div class="info-row"><span class="k">진료시간</span><span class="v">평일 09:30–20:30 · 토 09:00–15:00 (점심시간 없음)<br>일·공휴일 휴진</span></div>
+    <a class="map-link" href="https://map.kakao.com/link/search/경기도 부천시 원미구 소향로 135" target="_blank" rel="noopener">카카오맵에서 길찾기 →</a>
+  </div>
+
+  <footer>
+    지인한의원 · JEEIN CLINIC — 아는 사람처럼 진료합니다
+    <span class="optout">무료수신거부 0808713232</span>
+  </footer>
+
+</div>
+</body>
+</html>
