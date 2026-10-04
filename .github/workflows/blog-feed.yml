@@ -24,10 +24,10 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if ! git diff --quiet index.html; then
+          if ! git diff --quiet index.html blog/index.html data/blog-posts.json; then
             git config user.name "jeein-bot"
             git config user.email "actions@github.com"
-            git add index.html
+            git add index.html blog/index.html data/blog-posts.json
             git commit -m "chore: update blog feed [skip ci]"
             git push
           else
