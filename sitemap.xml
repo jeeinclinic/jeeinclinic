@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jeeinclinic.com/</loc><lastmod>2026-07-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://jeeinclinic.com/</loc><lastmod>2026-10-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://jeeinclinic.com/hours/</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://jeeinclinic.com/about/</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://jeeinclinic.com/about/</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://jeeinclinic.com/night/</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://jeeinclinic.com/notes/</loc><lastmod>2026-07-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://jeeinclinic.com/notes/child-no-appetite.html</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jeeinclinic.com/facial-palsy/</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://jeeinclinic.com/trigeminal-neuralgia/</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>
