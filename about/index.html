@@ -23,6 +23,7 @@
   "jobTitle": "한의사 · 지인한의원 대표원장",
   "url": "https://jeeinclinic.com/about/",
   "worksFor": {"@id": "https://jeeinclinic.com/#clinic"},
+  "image": "https://jeeinclinic.com/images/doctor-lee.webp",
   "alumniOf": {"@type": "CollegeOrUniversity", "name": "대구한의대학교 한의학과"},
   "memberOf": [
     {"@type": "Organization", "name": "부천시 한의사회"},
@@ -58,7 +59,7 @@
   h1{font-size:clamp(26px,4.8vw,36px);font-weight:900;line-height:1.42;color:var(--pine-deep);margin:0 0 8px}
   .role{font-size:15px;color:var(--ink-soft);margin:0 0 34px}
 
-  .photo-slot{width:180px;height:220px;border-radius:16px;background:var(--paper-deep);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:12.5px;text-align:center;line-height:1.6;float:right;margin:0 0 18px 22px}
+  .photo{width:280px;max-width:45%;border-radius:16px;float:right;margin:0 0 18px 22px;box-shadow:0 8px 24px rgba(23,35,26,.12);display:block}
 
   .quote{font-family:'Noto Serif KR',serif;font-size:19px;font-weight:700;line-height:1.7;color:var(--pine-deep);border-left:4px solid var(--seal);padding:6px 0 6px 20px;margin:0 0 30px}
 
@@ -88,7 +89,7 @@
   footer .f-brand{font-family:'Noto Serif KR',serif;font-weight:900;font-size:16px;color:#F3F0E4;margin-bottom:6px}
 
   @media (max-width:560px){
-    .photo-slot{float:none;margin:0 0 22px;width:100%;height:180px}
+    .photo{float:none;margin:0 0 22px;width:100%;max-width:340px}
     .fields{grid-template-columns:1fr}
   }
 </style>
@@ -108,6 +109,8 @@
   <div class="eyebrow">원장 소개</div>
   <h1>이은혜 대표원장</h1>
   <p class="role">한의사 · 지인한의원 대표원장</p>
+
+  <img class="photo" src="/images/doctor-lee.webp" alt="지인한의원 이은혜 대표원장" width="361" height="260" loading="eager">
 
   <p class="quote">"오래 알고 지낸 지인(知人)을 대하듯,<br>한 분 한 분의 사정을 기억하며 진료합니다."</p>
 
