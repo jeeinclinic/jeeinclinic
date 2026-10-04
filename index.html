@@ -109,7 +109,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;line-height:1.75}
-  h1,h2,h3,.serif{font-family:'Noto Serif KR',serif}
+  h1,h2,h3,.serif{font-family:'Noto Serif KR',serif;word-break:keep-all}
   a{color:inherit}
   .wrap{max-width:960px;margin:0 auto;padding:0 22px}
 
@@ -129,9 +129,9 @@
   /* hero */
   .hero{padding:76px 0 60px;position:relative}
   .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:3px;color:var(--ochre);margin-bottom:16px}
-  .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:900;line-height:1.35;letter-spacing:-.5px;color:var(--pine-deep);margin:0 0 20px}
+  .hero h1{font-size:clamp(25px,6.2vw,46px);font-weight:900;line-height:1.35;letter-spacing:-.5px;color:var(--pine-deep);margin:0 0 20px}
   .hero h1 em{font-style:normal;position:relative;color:var(--seal)}
-  .hero p{max-width:560px;font-size:16px;color:var(--ink-soft);margin:0 0 30px}
+  .hero p{max-width:560px;font-size:16px;word-break:keep-all;color:var(--ink-soft);margin:0 0 30px}
   .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
   .btn{display:inline-block;padding:14px 22px;border-radius:12px;font-size:14.5px;font-weight:700;text-decoration:none;transition:transform .15s ease}
   .btn:hover{transform:translateY(-2px)}
@@ -283,6 +283,7 @@
       <!-- 한가위 이벤트: 10/10 종료 후 아래 한 줄 삭제 -->
       <a href="/chuseok/" style="border-color:#C99A3E;color:#B8792C;font-weight:700;background:#FFF9EC">🌕 한가위 공진단·경옥고 이벤트 (10/10까지)</a>
       <a class="hot" href="/facial-palsy/">자고 일어났더니 얼굴이 안 움직여요 →</a>
+      <a class="hot" href="/facial-palsy/warning-signs/">귀 뒤가 찌릿하게 아파요 →</a>
       <a class="hot" href="/trigeminal-neuralgia/">세수만 해도 얼굴이 번쩍 아파요 →</a>
       <a href="/hours/">부천에 저녁에도 하는 한의원 있나요?</a>
       <a href="/notes/child-no-appetite.html">아이가 밥을 안 먹어요</a>
