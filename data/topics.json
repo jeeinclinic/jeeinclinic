@@ -1,0 +1,47 @@
+{
+ "rhinitis": {
+  "name": "비염 · 호흡기",
+  "count": 3,
+  "lastmod": "2026-09-16"
+ },
+ "women": {
+  "name": "여성질환 · 갱년기 · 난임",
+  "count": 10,
+  "lastmod": "2026-09-28"
+ },
+ "postpartum": {
+  "name": "산후 회복 · 산후풍",
+  "count": 5,
+  "lastmod": "2026-10-02"
+ },
+ "car-accident": {
+  "name": "교통사고 후유증",
+  "count": 1,
+  "lastmod": "2026-08-07"
+ },
+ "pain": {
+  "name": "통증 · 척추관절",
+  "count": 18,
+  "lastmod": "2026-09-30"
+ },
+ "digestion": {
+  "name": "소화기",
+  "count": 7,
+  "lastmod": "2026-09-14"
+ },
+ "skin": {
+  "name": "피부 · 두피",
+  "count": 5,
+  "lastmod": "2026-08-21"
+ },
+ "diet": {
+  "name": "한방 다이어트",
+  "count": 4,
+  "lastmod": "2026-10-02"
+ },
+ "treatments": {
+  "name": "치료법 안내",
+  "count": 4,
+  "lastmod": "2026-07-23"
+ }
+}

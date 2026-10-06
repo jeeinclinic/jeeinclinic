@@ -8,6 +8,8 @@ on:
     branches: [main]
     paths:
       - "scripts/update_blog_feed.py"
+      - "scripts/build_topics.py"
+      - "scripts/topics_config.py"
       - ".github/workflows/blog-feed.yml"
 
 permissions:
@@ -22,12 +24,15 @@ jobs:
       - name: Fetch latest blog posts into index.html
         run: python3 scripts/update_blog_feed.py
 
+      - name: Rebuild topic hub pages (원장 칼럼 자동 분류)
+        run: python3 scripts/build_topics.py
+
       - name: Commit if changed
         run: |
-          if ! git diff --quiet index.html blog/index.html data/blog-posts.json; then
+          git add -A index.html blog data rhinitis women postpartum car-accident pain digestion skin diet treatments
+          if ! git diff --cached --quiet; then
             git config user.name "jeein-bot"
             git config user.email "actions@github.com"
-            git add index.html blog/index.html data/blog-posts.json
             git commit -m "chore: update blog feed [skip ci]"
             git push
           else
