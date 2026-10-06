@@ -100,13 +100,20 @@
   footer{background:var(--pine-deep);color:#C9D2C6;padding:38px 0 56px}
   footer p{margin:2px 0;font-size:12.5px}
   footer .f-brand{font-family:'Noto Serif KR',serif;font-weight:900;font-size:16px;color:#F3F0E4;margin-bottom:6px}
+
+  /* unified brand header */
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand .bseal{width:34px;height:34px;border-radius:7px;background:#B23A2E;color:#FBF6E8;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif KR',serif;font-weight:900;font-size:13px;letter-spacing:1px;box-shadow:inset 0 0 0 2px rgba(251,246,232,.35);flex-shrink:0}
+  .brand .btxt{display:flex;flex-direction:column;line-height:1.25}
+  .brand .b1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:16.5px;color:var(--pine-deep)}
+  .brand .b2{font-family:'Noto Sans KR',sans-serif;font-weight:500;font-size:9.5px;color:var(--ink-soft);letter-spacing:1.8px}
 </style>
 </head>
 <body>
 
 <header>
   <div class="topbar">
-    <a class="brand" href="/">지인한의원</a>
+    <a class="brand" href="/"><span class="bseal">知人</span><span class="btxt"><span class="b1">지인한의원</span><span class="b2">부천 중동 · JEEIN CLINIC</span></span></a>
     <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:032-323-2933">032-323-2933</a></span>
   </div>
 </header>
