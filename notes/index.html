@@ -47,9 +47,6 @@
 
   header{position:sticky;top:0;z-index:50;background:rgba(243,240,228,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .topbar{max-width:920px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.25}
-  .brand .b1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:18px;color:var(--pine-deep)}
-  .brand .b2{font-size:10.5px;color:var(--ink-soft);letter-spacing:2px}
   .top-link{font-size:13px;font-weight:700;text-decoration:none;color:var(--pine);border:1.5px solid var(--pine);padding:8px 14px;border-radius:10px}
 
   .hero{padding:64px 0 40px;border-bottom:1px solid var(--line)}
@@ -88,7 +85,7 @@
   @media (max-width:680px){.grid{grid-template-columns:1fr}}
 
   /* unified brand header */
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand{display:flex;flex-direction:row;align-items:center;gap:10px;text-decoration:none}
   .brand .bseal{width:34px;height:34px;border-radius:7px;background:#B23A2E;color:#FBF6E8;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif KR',serif;font-weight:900;font-size:13px;letter-spacing:1px;box-shadow:inset 0 0 0 2px rgba(251,246,232,.35);flex-shrink:0}
   .brand .btxt{display:flex;flex-direction:column;line-height:1.25}
   .brand .b1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:16.5px;color:var(--pine-deep)}
