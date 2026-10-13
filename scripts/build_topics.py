@@ -107,7 +107,7 @@ def build(topic, posts):
                 '      <span class="cdate">원장 칼럼 · %s</span>\n'
                 '      <span class="ctitle">%s</span>\n'
                 '      <span class="cdesc">%s</span>\n'
-                '      <span class="cgo">네이버 블로그에서 전문 읽기 ↗</span>\n'
+                '      <span class="cgo">네이버 블로그에서 원문 읽기 ↗</span>\n'
                 '    </a>' % (esc(p["link"]), esc(p["date"].replace("-", ".")), esc(p["title"]), esc(trim(p["desc"]))))
         cols = "\n".join(cards)
         colsec = ('\n  <h2>이은혜 원장 칼럼 <span class="cnt">%d편</span></h2>\n'
