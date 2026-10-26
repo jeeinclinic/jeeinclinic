@@ -152,6 +152,7 @@ def main():
 <!-- 이 파일은 scripts/build_faq.py가 생성합니다. -->
 <title>자주 묻는 질문 — 아이 열·복통, 허리 통증, 교통사고, 수험생 | 부천 지인한의원</title>
 <meta name="description" content="밤에 아이가 열이 날 때, 배가 아플 때, 허리가 아플 때, 교통사고 자동차보험, 고3 집중력, 생리통, 구안와사까지 — 환자분들이 가장 많이 묻는 질문에 부천 지인한의원이 미리 답해 두었습니다.">
+<meta name="ai-summary" content="밤에 아이가 열이 날 때, 배가 아플 때, 허리가 아플 때, 교통사고 자동차보험, 고3 집중력, 생리통, 구안와사까지 — 환자분들이 가장 많이 묻는 질문에 부천 지인한의원이 미리 답해 두었습니다.">
 <link rel="canonical" href="{SITE}/faq/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="자주 묻는 질문 — 부천 지인한의원">

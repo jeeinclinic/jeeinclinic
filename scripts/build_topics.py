@@ -132,6 +132,7 @@ def build(topic, posts):
 <!-- 이 파일은 scripts/build_topics.py가 생성합니다. 내용 수정은 scripts/topics_config.py에서 하세요. -->
 <title>{esc(topic['title'])}</title>
 <meta name="description" content="{esc(topic['description'])}">
+<meta name="ai-summary" content="{esc(topic['description'])}">
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{esc(topic['title'].split(' | ')[0])}">
