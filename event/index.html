@@ -107,6 +107,21 @@ a{color:var(--red)}
 footer{padding:28px 0 44px;font-size:13px;color:var(--brown);text-align:center}
 footer .clinic{font-weight:700;font-size:15px;color:var(--ink);letter-spacing:2px}
 footer p{margin:4px 0}
+
+/* PC 레이아웃 */
+@media (min-width:1000px){
+  .hero2{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;max-width:1100px;margin:0 auto;padding:56px 24px 16px}
+  .hero2 .hero{text-align:left;padding:0;max-width:none}
+  .hero2 .hero .eyebrow{justify-content:flex-start}
+  .hero2 .hero .eyebrow::before{display:none}
+  .hero2 .photo{margin:0;max-width:none}
+  .hero2 .photo img{border:1px solid var(--line)}
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1100px;margin:14px auto 0;align-items:stretch}
+  .prices .ship{grid-column:1/-1;margin:10px 0 0}
+  .sec{max-width:720px;margin:0 auto}
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pouchrow img{width:38%}
+}
 </style>
 <link rel="icon" type="image/png" href="/images/favicon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,6 +146,7 @@ footer p{margin:4px 0}
   </div>
 </header>
 
+<div class="hero2">
 <section class="hero wrap">
   <div class="eyebrow">따뜻한 겨울보약</div>
   <h1>쌍패탕</h1>
@@ -143,6 +159,7 @@ footer p{margin:4px 0}
 <div class="wrap photo">
   <img src="img/herbs.jpg" alt="쌍패탕에 들어가는 한약재와 녹용을 고르는 모습">
   <div class="cap">엄선한 한약재와 녹용으로 정성껏 달입니다</div>
+</div>
 </div>
 
 <section class="prices wrap">
