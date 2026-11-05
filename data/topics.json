@@ -16,13 +16,13 @@
  },
  "car-accident": {
   "name": "교통사고 후유증",
-  "count": 1,
-  "lastmod": "2026-08-07"
+  "count": 2,
+  "lastmod": "2026-11-04"
  },
  "pain": {
   "name": "통증 · 척추관절",
-  "count": 19,
-  "lastmod": "2026-10-19"
+  "count": 20,
+  "lastmod": "2026-11-04"
  },
  "digestion": {
   "name": "소화기",
