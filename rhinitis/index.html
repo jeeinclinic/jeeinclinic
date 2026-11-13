@@ -211,7 +211,15 @@
   .others{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
   .others a{font-size:13px;font-weight:700;text-decoration:none;color:var(--pine);background:#FFFDF4;border:1px solid var(--line);padding:8px 13px;border-radius:999px}
 
-</style>
+/* SITENAV:START */
+  .sitenav{border-top:1px solid rgba(34,39,31,.08)}
+  .sitenav-in{margin:0 auto;padding:0 14px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;white-space:nowrap}
+  .sitenav-in::-webkit-scrollbar{display:none}
+  .sitenav a{flex:none;font-family:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;font-size:13px;font-weight:700;line-height:1.2;text-decoration:none;color:#5D6455;padding:11px 10px}
+  .sitenav a:hover{color:#22271F}
+  .sitenav a[aria-current="page"]{color:#2B4232;box-shadow:inset 0 -2px 0 #B8792C}
+  @media (min-width:761px){.sitenav.mobile-only{display:none}}
+/* SITENAV:END */</style>
 </head>
 <body>
 
@@ -220,6 +228,9 @@
     <a class="brand" href="/"><span class="bseal">知人</span><span class="btxt"><span class="b1">지인한의원</span><span class="b2">부천 중동 · JEEIN CLINIC</span></span></a>
     <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:032-323-2933">032-323-2933</a></span>
   </div>
+<!-- SITENAV:START -->
+<nav class="sitenav" aria-label="주요 메뉴"><div class="sitenav-in" style="max-width:720px"><a href="/hours/">야간진료 안내</a><a href="/columns/">칼럼</a><a href="/night/">야간 증상 가이드</a><a href="/notes/">생활한방노트</a><a href="/faq/">자주 묻는 질문</a><a href="/about/">원장 소개</a></div></nav>
+<!-- SITENAV:END -->
 </header>
 
 <div class="wrap">
