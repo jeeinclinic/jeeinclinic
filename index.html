@@ -227,6 +227,7 @@
   .contact-btns a,.contact-btns button{display:block;width:100%;text-align:center;padding:13px;border-radius:11px;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
   .c-navermap{background:#2DB400;color:#fff}
   .c-kakaomap{background:#1A73E8;color:#fff}
+  .c-googlemap{background:#fff;color:#1A4FA0;box-shadow:inset 0 0 0 1.5px #1A4FA0}
   .c-copy{background:var(--paper-deep);color:var(--ink);border:1px solid var(--line)!important}
   .c-call{background:var(--pine);color:#F3F0E4}
   .c-kakao{background:#FEE500;color:#3C1E1E}
@@ -489,6 +490,7 @@ n.querySelectorAll('a[href^="/#"]').forEach(function(a){a.addEventListener('clic
       <div class="contact-btns">
         <a class="c-navermap" href="https://map.naver.com/p/search/%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135" target="_blank" rel="noopener">🗺️ 네이버지도 길찾기</a>
         <a class="c-kakaomap" href="https://map.kakao.com/link/search/%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135" target="_blank" rel="noopener">🚕 카카오맵 길찾기</a>
+        <a class="c-googlemap" href="https://www.google.com/maps/dir/?api=1&destination=%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135" target="_blank" rel="noopener">🌐 구글맵 길찾기</a>
         <button class="c-copy" type="button" onclick="navigator.clipboard.writeText('경기도 부천시 원미구 소향로 135, 3층 지인한의원').then(()=>{this.textContent='✓ 복사되었습니다';setTimeout(()=>{this.textContent='📋 주소 복사'},2000)})">📋 주소 복사</button>
         <a class="c-call" href="tel:032-323-2933">전화 걸기</a>
         <a class="c-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">카카오톡 채널 상담</a>
