@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""/faq/ — 환자가 검색창에 묻는 질문에 미리 답해 두는 페이지.
+"""생활한방노트(/notes/)의 '자주 묻는 질문' 섹션 생성기 (예전 /faq/ 페이지는 /notes/로 이동 안내 페이지만 남김).
 
 각 답은 '첫 문장 = 결론'으로 쓰고, 근거는 사이트 상세 페이지(원장 칼럼 기반)·법령에 둔다.
 """
@@ -102,6 +102,12 @@ FAQ = [
      "/trigeminal-neuralgia/", "삼차신경통"),
   ]),
   ("clinic", "🏥 진료 · 보험 · 예약", [
+    ("지인한의원은 어디에 있나요?",
+     "경기도 부천시 원미구 소향로 135, 3층에 있습니다. 7호선 부천시청역 2번 출구에서 도보 3분(293m)이며, 2010년 개원 이래 같은 자리에서 진료하고 있습니다. 전화는 032-323-2933입니다.",
+     "/hours/", "오시는 길 · 진료시간"),
+    ("어떤 진료를 하나요?",
+     "구안와사(안면신경마비)·삼차신경통 등 안면 신경 질환을 중심으로, 소아 성장·식욕부진·감기·비염, 수험생 총명탕, 여성질환(월경통·갱년기·산후조리·난임), 한방 다이어트, 피부·탈모, 급만성 통증과 교통사고 후유증을 진료합니다.",
+     "/#fields", "진료분야"),
     ("부천에 저녁에도 진료하는 한의원이 있나요?",
      "지인한의원은 평일(월~금) 매일 09:30–20:30, 토요일 09:00–15:00 진료하며 점심시간 없이 진료합니다. 일요일·공휴일은 휴진입니다. 부천시청역 2번 출구에서 도보 3분입니다.",
      "/hours/", "진료시간 안내"),
@@ -119,116 +125,67 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def main():
-    src = open(os.path.join(ROOT, "scripts", "topic_style.css"), encoding="utf-8").read()
-    extra_css = """  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
-  .toc a{font-size:13px;font-weight:700;text-decoration:none;color:var(--pine);background:#FFFDF4;border:1px solid var(--line);padding:8px 13px;border-radius:999px}
-  .qa{background:#FFFDF4;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px}
-  .qa h3{font-size:16.5px;color:var(--pine-deep);margin:0 0 10px;line-height:1.55}
-  .qa h3::before{content:'Q. ';color:var(--seal)}
-  .qa p{font-size:14.5px;margin:0 0 10px}
-  .qa .more{font-size:13px;font-weight:700;color:var(--seal);text-decoration:none}
-  section.cat{scroll-margin-top:80px}
-"""
-    all_q = [q for _, _, qs in FAQ for q in qs]
-    ld = {"@context": "https://schema.org", "@type": "FAQPage", "url": SITE + "/faq/", "inLanguage": "ko",
-          "publisher": {"@id": SITE + "/#clinic"},
-          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
-                         for q, a, _, _ in all_q]}
-    toc = "\n    ".join('<a href="#%s">%s</a>' % (cid, esc(name)) for cid, name, _ in FAQ)
-    secs = []
-    for cid, name, qs in FAQ:
-        items = []
-        for q, a, href, label in qs:
-            items.append('    <div class="qa">\n      <h3>%s</h3>\n      <p>%s</p>\n      <a class="more" href="%s">%s 자세히 →</a>\n    </div>'
-                         % (esc(q), esc(a), href, esc(label)))
-        secs.append('  <section class="cat" id="%s">\n  <h2>%s</h2>\n%s\n  </section>' % (cid, esc(name), "\n".join(items)))
+def splice(text, start, end, body):
+    a, b = text.index(start), text.index(end)
+    return text[:a + len(start)] + "\n" + body + "\n" + text[b:]
 
-    page = f"""<!DOCTYPE html>
+
+STUB = """<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- 이 파일은 scripts/build_faq.py가 생성합니다. -->
-<title>자주 묻는 질문 — 아이 열·복통, 허리 통증, 교통사고, 수험생 | 부천 지인한의원</title>
-<meta name="description" content="밤에 아이가 열이 날 때, 배가 아플 때, 허리가 아플 때, 교통사고 자동차보험, 고3 집중력, 생리통, 구안와사까지 — 환자분들이 가장 많이 묻는 질문에 부천 지인한의원이 미리 답해 두었습니다.">
-<link rel="canonical" href="{SITE}/faq/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="자주 묻는 질문 — 부천 지인한의원">
-<meta property="og:description" content="아이 열·복통, 허리 통증, 교통사고, 수험생 — 가장 많이 묻는 질문에 미리 답했습니다.">
-<meta property="og:url" content="{SITE}/faq/">
-<link rel="icon" type="image/png" href="/images/favicon-512.png">
-<link rel="apple-touch-icon" href="/images/favicon-512.png">
-<meta property="og:image" content="https://jeeinclinic.com/images/og-main.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jeeinclinic.com/images/og-main.png">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{json.dumps(ld, ensure_ascii=False, indent=1)}
+<!-- 이 파일은 scripts/build_faq.py가 생성합니다. '자주 묻는 질문'은 생활한방노트로 합쳐졌습니다. -->
+<title>생활한방노트로 이동합니다 | 부천 지인한의원</title>
+<link rel="canonical" href="https://jeeinclinic.com/notes/">
+<meta http-equiv="refresh" content="0; url=/notes/#faq">
+<meta name="robots" content="noindex, follow">
+<script>
+  var h = location.hash ? location.hash.replace('#', '') : '';
+  location.replace('/notes/#' + (h ? 'faq-' + h : 'faq'));
 </script>
-<style>
-{src}{extra_css}</style>
 </head>
-<body>
-
-<header>
-  <div class="topbar">
-    <a class="brand" href="/"><span class="bseal">知人</span><span class="btxt"><span class="b1">지인한의원</span><span class="b2">부천 중동 · JEEIN CLINIC</span></span></a>
-    <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:032-323-2933">032-323-2933</a></span>
-  </div>
-</header>
-
-<div class="wrap">
-<article>
-
-  <div class="eyebrow">자주 묻는 질문 · FAQ</div>
-  <h1>검색하기 전에,<br><em>먼저 답해 드립니다</em></h1>
-  <p class="byline">글·감수 <strong><a href="/about/" style="color:inherit">이은혜</a></strong> 한의사 (지인한의원 대표원장)</p>
-
-  <div class="answer">밤에 아이가 열이 날 때, 허리를 삐끗했을 때, 교통사고 뒤 며칠 지나 아플 때 — 진료실과 전화로 가장 많이 받는 질문을 모아 <strong>첫 문장에 결론</strong>부터 답했습니다. 응급 신호가 있으면 이 페이지보다 <strong>119·응급실이 먼저</strong>입니다.</div>
-
-  <div class="toc">
-    {toc}
-  </div>
-
-{chr(10).join(secs)}
-
-  <div class="cta-box">
-    <h3>여기 없는 질문은 편하게 물어보세요</h3>
-    <p>부천시 원미구 소향로 135, 3층 (부천시청역 2번 출구 도보 3분) · 평일 매일 저녁 8:30까지 · 토 09:00–15:00</p>
-    <div class="ctas">
-      <a class="c-call" href="tel:032-323-2933">📞 032-323-2933</a>
-      <a class="c-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카카오톡</a>
-      <a class="c-naver" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener">네이버 예약</a>
-    </div>
-  </div>
-
-  <p class="disc" style="margin-bottom:0">답변은 이은혜 대표원장의 <a href="https://blog.naver.com/jeeinomd2020" target="_blank" rel="noopener" style="font-weight:700">공식 블로그</a> 칼럼과 이 사이트의 진료 안내를 바탕으로 정리했습니다. 교통사고 관련 내용 근거: 자동차손해배상 보장법 제12조, 국토교통부 고시 「자동차보험진료수가에 관한 기준」, 자동차보험 표준약관.</p>
-  <p class="disc" style="border-top:none;padding-top:8px">본 안내는 일반적인 건강 정보이며 의학적 진단과 응급 진료를 대신하지 않습니다. 야간·휴일 진료 병원은 129(보건복지콜센터) 또는 응급의료포털(e-gen.or.kr)에서 확인할 수 있습니다.</p>
-
-</article>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="f-brand">지인한의원</div>
-    <p>경기도 부천시 원미구 소향로 135, 3층 · 대표(원장) 이은혜 · 전화 032-323-2933</p>
-    <p>진료시간 — 월~금 09:30–20:30 / 토 09:00–15:00 / 일·공휴일 휴진 (점심시간 없이 진료)</p>
-  </div>
-</footer>
-
+<body style="font-family:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;background:#F3F0E4;color:#22271F;padding:40px 22px;line-height:1.8">
+<p>자주 묻는 질문은 <a href="/notes/#faq">생활한방노트</a>로 옮겼습니다. 자동으로 이동하지 않으면 링크를 눌러 주세요.</p>
 </body>
 </html>
 """
+
+
+def main():
+    all_q = [q for _, _, qs in FAQ for q in qs]
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "url": SITE + "/notes/#faq", "inLanguage": "ko",
+          "publisher": {"@id": SITE + "/#clinic"},
+          "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+                         for q, a, _, _ in all_q]}
+    ld_block = '<script type="application/ld+json">\n%s\n</script>' % json.dumps(ld, ensure_ascii=False, indent=1)
+
+    toc = "".join('<a href="#faq-%s">%s</a>' % (cid, esc(name)) for cid, name, _ in FAQ)
+    cats = []
+    for cid, name, qs in FAQ:
+        items = []
+        for q, a, href, label in qs:
+            items.append('      <details>\n        <summary>%s</summary>\n        <p>%s</p>\n'
+                         '        <a class="more" href="%s">%s 자세히 →</a>\n      </details>'
+                         % (esc(q), esc(a), href, esc(label)))
+        cats.append('    <div class="qa-cat" id="faq-%s">\n      <h3>%s</h3>\n%s\n    </div>' % (cid, esc(name), "\n".join(items)))
+    section = (
+        '  <section class="qa-sec" id="faq">\n'
+        '    <h2>자주 묻는 질문</h2>\n'
+        '    <p class="sub">진료실과 전화로 가장 많이 받는 질문에 <strong>첫 문장에 결론</strong>부터 답했습니다. 응급 신호가 있으면 먼저 119나 응급실을 이용해 주세요.</p>\n'
+        '    <div class="qa-toc">%s</div>\n%s\n'
+        '    <p class="sub" style="margin-top:6px">여기 없는 질문은 <a href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener" style="font-weight:700">카카오톡 채널</a>이나 전화(032-323-2933)로 편하게 물어보세요.</p>\n'
+        '  </section>' % (toc, "\n".join(cats)))
+
+    path = os.path.join(ROOT, "notes", "index.html")
+    t = open(path, encoding="utf-8").read()
+    t = splice(t, "<!-- NOTES-FAQ-LD:START -->", "<!-- NOTES-FAQ-LD:END -->", ld_block)
+    t = splice(t, "<!-- NOTES-QA:START -->", "<!-- NOTES-QA:END -->", section)
+    open(path, "w", encoding="utf-8").write(t)
+
     os.makedirs(os.path.join(ROOT, "faq"), exist_ok=True)
-    with open(os.path.join(ROOT, "faq", "index.html"), "w", encoding="utf-8") as f:
-        f.write(page)
-    print("faq: %d questions" % len(all_q))
+    open(os.path.join(ROOT, "faq", "index.html"), "w", encoding="utf-8").write(STUB)
+    print("faq -> notes: %d questions" % len(all_q))
 
 
 if __name__ == "__main__":

@@ -13,7 +13,6 @@ ITEMS = [  # (주소, 이름)
     ("/columns/", "칼럼"),
     ("/night/", "야간 증상 가이드"),
     ("/notes/", "생활한방노트"),
-    ("/faq/", "자주 묻는 질문"),
     ("/about/", "원장 소개"),
 ]
 N_START, N_END = "<!-- SITENAV:START -->", "<!-- SITENAV:END -->"
