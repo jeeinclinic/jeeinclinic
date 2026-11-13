@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>지인 생활한방노트 | 아이 키우며 궁금한 순간들 — 부천 지인한의원</title>
-<meta name="description" content="아이가 밥을 안 먹을 때, 밤에 갑자기 아플 때, 수험생 컨디션까지 — 부천 지인한의원이 부모님들의 실제 질문에 답하는 생활한방 정보 연재와 자주 묻는 질문 모음.">
+<meta name="description" content="아이가 밥을 안 먹을 때, 밤에 갑자기 아플 때, 수험생 컨디션까지 — 부천 지인한의원이 부모님들의 실제 질문에 답하는 생활한방 정보 연재, 야간 증상 가이드, 자주 묻는 질문 모음.">
 <link rel="canonical" href="https://jeeinclinic.com/notes/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="지인 생활한방노트 — 부천 지인한의원 건강정보 연재">
@@ -30,6 +30,20 @@
   "inLanguage": "ko",
   "description": "부천 지인한의원이 발행하는 생활한방 건강정보 연재",
   "publisher": {"@id": "https://jeeinclinic.com/#clinic"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "밤에 아이가 아플 때 — 야간 증상 가이드",
+  "url": "https://jeeinclinic.com/notes/#night",
+  "inLanguage": "ko",
+  "about": {"@type": "MedicalCondition", "name": "소아 야간 증상(복통, 발열, 기침, 구토)"},
+  "audience": {"@type": "Audience", "audienceType": "부모, 보호자"},
+  "publisher": {"@id": "https://jeeinclinic.com/#clinic"},
+  "lastReviewed": "2026-07-16",
+  "reviewedBy": {"@type": "Person", "name": "이은혜", "jobTitle": "지인한의원 대표원장"}
 }
 </script>
 <!-- NOTES-FAQ-LD:START -->
@@ -363,6 +377,42 @@
   .qa-sec details p{margin:0 0 10px;font-size:14px;color:var(--ink-soft)}
   .qa-sec .more{display:inline-block;margin:0 0 16px;font-size:13px;font-weight:700;color:var(--seal);text-decoration:none}
 
+  /* 야간 증상 가이드 */
+  .hero-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .hero-links a{font-size:13px;font-weight:700;text-decoration:none;color:var(--pine);background:#FFFDF4;border:1px solid var(--line);padding:9px 14px;border-radius:999px}
+  .night-sec{margin:10px 0 60px;scroll-margin-top:120px}
+  .night-sec .eyebrow{margin-bottom:10px}
+  .night-sec .ns-title{font-size:clamp(22px,4.4vw,28px);font-weight:900;color:var(--pine-deep);margin:0 0 10px;line-height:1.45}
+  .night-sec .ns-lead{font-size:14.5px;color:var(--ink-soft);margin:0 0 18px;max-width:620px}
+  .night-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
+  .night-tab{cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#FFFDF4;color:var(--pine)}
+  .night-tab:hover{border-color:var(--ochre);color:var(--ochre)}
+  .night-sec .card{background:#FFFDF4;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden;scroll-margin-top:120px}
+  .night-sec .card-head{width:100%;text-align:left;background:none;border:none;color:var(--ink);cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:inherit}
+  .night-sec .card-head h2{font-size:18px;font-weight:900;margin:0;line-height:1.5;color:var(--pine-deep)}
+  .night-sec .chev{font-size:20px;color:var(--ochre);flex-shrink:0;transition:transform .2s}
+  .night-sec .card.open .chev{transform:rotate(45deg)}
+  .night-sec .card-body{display:none;padding:0 22px 24px}
+  .night-sec .card.open .card-body{display:block}
+  .night-sec .step{margin-bottom:16px}
+  .night-sec .step h3{font-size:14.5px;font-weight:900;margin:0 0 8px}
+  .night-sec .step ul{margin:0;padding-left:20px;font-size:14px;color:var(--ink-soft)}
+  .night-sec .step li{margin-bottom:6px}
+  .night-sec .home-care{background:var(--sage-soft);border-radius:12px;padding:16px 18px}
+  .night-sec .home-care h3{color:var(--sage)}
+  .night-sec .er{background:#FBEFEC;border:1px solid rgba(178,58,46,.3);border-radius:12px;padding:16px 18px}
+  .night-sec .er h3{color:var(--seal)}
+  .night-sec .er li{color:#7A2D24}
+  .night-sec .clinic{background:var(--ochre-soft);border-radius:12px;padding:16px 18px}
+  .night-sec .clinic h3{color:#8F5A18}
+  .night-sec .clinic p{font-size:14px;color:var(--ink-soft);margin:0}
+  .night-sec .card-ctas{display:flex;gap:9px;margin-top:18px;flex-wrap:wrap}
+  .night-sec .card-ctas a{flex:1;min-width:130px;text-align:center;padding:12px 10px;border-radius:11px;font-size:13.5px;font-weight:700;text-decoration:none}
+  .night-sec .cc-call{background:var(--pine);color:#F3F0E4}
+  .night-sec .cc-kakao{background:#FEE500;color:#3C1E1E}
+  .night-disclaimer{margin:22px 0 0;font-size:12.5px;color:var(--ink-soft);border:1px dashed var(--line);border-radius:13px;padding:16px 18px;line-height:1.8}
+  @media (max-width:520px){.night-sec .card-head{padding:17px 17px}.night-sec .card-body{padding:0 17px 20px}}
+
   /* unified brand header */
   .brand{display:flex;flex-direction:row;align-items:center;gap:10px;text-decoration:none}
   .brand .bseal{width:34px;height:34px;border-radius:7px;background:#B23A2E;color:#FBF6E8;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif KR',serif;font-weight:900;font-size:13px;letter-spacing:1px;box-shadow:inset 0 0 0 2px rgba(251,246,232,.35);flex-shrink:0}
@@ -389,7 +439,7 @@
     <a class="top-link" href="/">🏠 한의원 홈</a>
   </div>
 <!-- SITENAV:START -->
-<nav class="sitenav" aria-label="주요 메뉴"><div class="sitenav-in" style="max-width:920px"><a href="/hours/">야간진료 안내</a><a href="/columns/">칼럼</a><a href="/night/">야간 증상 가이드</a><a href="/notes/" aria-current="page">생활한방노트</a><a href="/about/">원장 소개</a></div></nav>
+<nav class="sitenav" aria-label="주요 메뉴"><div class="sitenav-in" style="max-width:920px"><a href="/hours/">야간진료 안내</a><a href="/columns/">칼럼</a><a href="/notes/" aria-current="page">생활한방노트</a><a href="/about/">원장 소개</a></div></nav>
 <!-- SITENAV:END -->
 </header>
 
@@ -399,6 +449,7 @@
     <div class="eyebrow">부모님들의 실제 질문에 답합니다</div>
     <h1>아이 키우며 궁금한<br>순간들을 기록합니다</h1>
     <p>"아이가 밥을 안 먹어요", "밤에 갑자기 배가 아프대요" — 진료실에서 가장 많이 듣는 질문들을 글과 영상으로 정리해 연재합니다. 부천 중동 지인한의원 이은혜 원장이 감수합니다.</p>
+    <div class="hero-links"><a href="#night">🌙 밤에 아이가 아플 때</a><a href="#faq">❓ 자주 묻는 질문</a></div>
   </section>
 
   <div class="filters">
@@ -418,6 +469,183 @@
     </a>
   </div>
 
+  <!-- 야간 증상 가이드 (예전 /night/ 페이지를 이 섹션으로 통합) -->
+  <section class="night-sec" id="night">
+    <div class="eyebrow">NIGHT GUIDE · 야간 증상 가이드</div>
+    <h2 class="ns-title">아이가 갑자기 아픈 밤,<br>무엇부터 해야 할까요?</h2>
+    <p class="ns-lead">늦은 밤 아이가 배를 잡고 울거나 열이 오를 때, 무엇부터 해야 할지 몰라 막막하셨죠. 증상별로 지금 해볼 수 있는 것과, 병원에 바로 가야 하는 신호를 정리했습니다.</p>
+    <div class="night-tabs" role="navigation" aria-label="증상 바로가기">
+      <button class="night-tab" type="button" data-jump="night-c1">밤에 배가 아파요</button>
+      <button class="night-tab" type="button" data-jump="night-c2">열이 나요</button>
+      <button class="night-tab" type="button" data-jump="night-c3">기침이 심해요</button>
+      <button class="night-tab" type="button" data-jump="night-c4">체했어요 · 토해요</button>
+      <button class="night-tab" type="button" data-jump="night-c5">고3, 집중이 안 돼요</button>
+    </div>
+
+    <article class="card" id="night-c1">
+        <button class="card-head" aria-expanded="false">
+          <h2>🌙 밤에 아이가 배가 아프다고 해요</h2><span class="chev">＋</span>
+        </button>
+        <div class="card-body">
+          <div class="step home-care">
+            <h3>집에서 먼저 해볼 것</h3>
+            <ul>
+              <li>따뜻한 손바닥으로 배꼽 주변을 시계 방향으로 천천히 문질러 주세요.</li>
+              <li>따뜻한 물을 조금씩 나눠 마시게 하고, 무릎을 굽혀 옆으로 눕히면 편해집니다.</li>
+              <li>방금 먹은 것(찬 음식, 급하게 먹은 식사, 새로운 음식)이 있었는지 떠올려 보세요.</li>
+              <li>배에 가스가 찬 경우 트림이나 방귀가 나오면 한결 나아지는 경우가 많습니다.</li>
+            </ul>
+          </div>
+          <div class="step er">
+            <h3>🚨 이 신호가 있으면 지금 바로 응급실</h3>
+            <ul>
+              <li>배를 만지지도 못하게 할 정도로 아파하거나, 다리를 배 쪽으로 오그리고 자지러지게 울 때</li>
+              <li>오른쪽 아랫배를 특히 아파할 때 (충수염 가능성)</li>
+              <li>구토가 반복되거나 토사물·변에 피가 섞여 있을 때</li>
+              <li>배가 빵빵하게 부풀고 열이 함께 날 때</li>
+            </ul>
+          </div>
+          <div class="step clinic">
+            <h3>지인한의원이 도울 수 있는 부분</h3>
+            <p>응급 신호 없이 반복되는 복통 — 자주 체하는 아이, 긴장하면 배가 아픈 아이, 찬 것을 먹으면 탈이 나는 아이는 소화기(비위) 기능을 함께 살펴볼 필요가 있습니다. 다음 날 진료시간에 편하게 데려오세요.</p>
+          </div>
+          <div class="card-ctas">
+            <a class="cc-call" href="tel:032-323-2933">📞 전화 상담</a>
+            <a class="cc-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카톡 문의</a>
+          </div>
+        </div>
+      </article>
+
+    <article class="card" id="night-c2">
+        <button class="card-head" aria-expanded="false">
+          <h2>🌡️ 밤에 열이 올라요</h2><span class="chev">＋</span>
+        </button>
+        <div class="card-body">
+          <div class="step home-care">
+            <h3>집에서 먼저 해볼 것</h3>
+            <ul>
+              <li>옷을 가볍게 입히고 실내 온도를 서늘하게(22~24도) 맞춰 주세요.</li>
+              <li>미온수를 조금씩 자주 먹여 탈수를 막아 주세요.</li>
+              <li>해열제는 제품 설명서의 연령·체중별 용법을 지켜 사용하고, 교차 복용 간격을 확인하세요.</li>
+              <li>아이가 힘들어하지 않고 잘 잔다면, 열 수치 자체보다 아이의 컨디션을 함께 봐 주세요.</li>
+            </ul>
+          </div>
+          <div class="step er">
+            <h3>🚨 이 신호가 있으면 지금 바로 응급실</h3>
+            <ul>
+              <li>생후 3개월 미만 아기의 발열 (38도 이상이면 무조건)</li>
+              <li>경련(열성경련)을 하거나, 의식이 처지고 자꾸 늘어질 때</li>
+              <li>해열제를 먹여도 열이 떨어지지 않고 아이가 심하게 처질 때</li>
+              <li>목이 뻣뻣하다고 하거나, 피부에 자주색 반점이 보일 때</li>
+            </ul>
+          </div>
+          <div class="step clinic">
+            <h3>지인한의원이 도울 수 있는 부분</h3>
+            <p>감기만 걸리면 열부터 나는 아이, 감기가 유난히 오래가는 아이는 기초 면역과 호흡기 관리를 함께 볼 수 있습니다. 감기·비염이 잦은 아이의 체질 관리를 상담해 보세요.</p>
+          </div>
+          <div class="card-ctas">
+            <a class="cc-call" href="tel:032-323-2933">📞 전화 상담</a>
+            <a class="cc-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카톡 문의</a>
+          </div>
+        </div>
+      </article>
+
+    <article class="card" id="night-c3">
+        <button class="card-head" aria-expanded="false">
+          <h2>😮‍💨 기침 때문에 잠을 못 자요</h2><span class="chev">＋</span>
+        </button>
+        <div class="card-body">
+          <div class="step home-care">
+            <h3>집에서 먼저 해볼 것</h3>
+            <ul>
+              <li>상체를 약간 높여 눕히면(베개 각도) 기침이 줄어드는 경우가 많습니다.</li>
+              <li>실내 습도를 50~60%로 — 가습기나 젖은 수건을 활용하세요.</li>
+              <li>따뜻한 물을 조금씩 마시게 해 목을 축여 주세요. (만 1세 이상이면 꿀물도 도움이 됩니다. 돌 이전 아기에게 꿀은 절대 금지)</li>
+              <li>자기 전 찬 공기·건조한 공기 노출을 줄여 주세요.</li>
+            </ul>
+          </div>
+          <div class="step er">
+            <h3>🚨 이 신호가 있으면 지금 바로 응급실</h3>
+            <ul>
+              <li>숨을 쉴 때 가슴이나 갈비뼈 아래가 쑥쑥 들어갈 때 (호흡곤란)</li>
+              <li>컹컹 개 짖는 소리 기침 + 숨 들이쉴 때 쇳소리가 나며 힘들어할 때</li>
+              <li>입술이나 얼굴색이 파랗게 변할 때</li>
+              <li>이물질을 삼킨 뒤 갑자기 시작된 기침일 때</li>
+            </ul>
+          </div>
+          <div class="step clinic">
+            <h3>지인한의원이 도울 수 있는 부분</h3>
+            <p>감기 뒤에 기침만 몇 주씩 남는 아이, 환절기마다 비염·기침을 달고 사는 아이는 호흡기 회복력을 함께 관리하면 재발 간격이 달라질 수 있습니다.</p>
+          </div>
+          <div class="card-ctas">
+            <a class="cc-call" href="tel:032-323-2933">📞 전화 상담</a>
+            <a class="cc-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카톡 문의</a>
+          </div>
+        </div>
+      </article>
+
+    <article class="card" id="night-c4">
+        <button class="card-head" aria-expanded="false">
+          <h2>🤢 체한 것 같아요 · 토했어요</h2><span class="chev">＋</span>
+        </button>
+        <div class="card-body">
+          <div class="step home-care">
+            <h3>집에서 먼저 해볼 것</h3>
+            <ul>
+              <li>토한 직후에는 바로 먹이지 말고 30분~1시간 위를 쉬게 해 주세요.</li>
+              <li>이후 미지근한 물이나 전해질 음료를 한두 모금씩, 천천히 늘려 가세요.</li>
+              <li>속이 가라앉으면 죽·미음처럼 부드러운 음식부터 소량씩 시작하세요.</li>
+              <li>손발이 차면 따뜻하게 해 주고, 등을 쓸어내리며 안정시켜 주세요.</li>
+            </ul>
+          </div>
+          <div class="step er">
+            <h3>🚨 이 신호가 있으면 지금 바로 응급실</h3>
+            <ul>
+              <li>물조차 계속 토해서 반나절 이상 아무것도 못 먹을 때 (탈수 위험)</li>
+              <li>토사물이 초록색(담즙)이거나 피가 섞여 있을 때</li>
+              <li>심한 복통·고열·처짐이 구토와 함께 올 때</li>
+              <li>소변량이 확 줄고 입술이 마르며 울어도 눈물이 안 날 때 (탈수 신호)</li>
+            </ul>
+          </div>
+          <div class="step clinic">
+            <h3>지인한의원이 도울 수 있는 부분</h3>
+            <p>자주 체하는 아이, 조금만 과식해도 탈이 나는 아이는 소화 기능 자체가 약한 경우가 많습니다. 반복되는 패턴이라면 비위 기능 회복을 상담해 보세요.</p>
+          </div>
+          <div class="card-ctas">
+            <a class="cc-call" href="tel:032-323-2933">📞 전화 상담</a>
+            <a class="cc-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카톡 문의</a>
+          </div>
+        </div>
+      </article>
+
+    <article class="card" id="night-c5">
+        <button class="card-head" aria-expanded="false">
+          <h2>📚 고3인데, 체력도 집중력도 떨어져요</h2><span class="chev">＋</span>
+        </button>
+        <div class="card-body">
+          <div class="step home-care">
+            <h3>집에서 먼저 챙길 것</h3>
+            <ul>
+              <li>수면 시간을 줄이는 것보다 수면의 질(취침 전 스마트폰 줄이기)이 성적에 더 중요합니다.</li>
+              <li>아침을 거르면 오전 집중력이 급격히 떨어집니다 — 간단해도 꼭 챙기게 해 주세요.</li>
+              <li>50분 공부 + 10분 스트레칭 루틴으로 목·어깨 긴장을 풀어 주세요.</li>
+              <li>카페인 음료는 오후 3시 이후 피해야 수면 리듬이 무너지지 않습니다.</li>
+            </ul>
+          </div>
+          <div class="step clinic">
+            <h3>지인한의원이 도울 수 있는 부분</h3>
+            <p>수험 기간 내내 지치지 않는 체력과 컨디션이 관건입니다. 지인한의원은 학생의 체질과 현재 상태(소화, 수면, 두통, 긴장도)를 살펴 수험생 총명탕 등 맞춤 관리를 상담합니다. 시험 일정에 맞춘 복용 계획도 함께 세워 드립니다.</p>
+          </div>
+          <div class="card-ctas">
+            <a class="cc-call" href="tel:032-323-2933">📞 전화 상담</a>
+            <a class="cc-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카톡 문의</a>
+          </div>
+        </div>
+      </article>
+
+    <div class="night-disclaimer">본 안내는 일반적인 가정 대처 정보이며 의학적 진단과 응급 진료를 대신하지 않습니다. 응급 신호가 하나라도 보이면 즉시 119 또는 가까운 응급실을 이용하세요. 야간·휴일 진료 병원 안내는 129(보건복지콜센터) 또는 응급의료포털(e-gen.or.kr)에서 확인할 수 있습니다.</div>
+  </section>
+
 <!-- NOTES-QA:START -->
   <section class="qa-sec" id="faq">
     <h2>자주 묻는 질문</h2>
@@ -428,12 +656,12 @@
       <details>
         <summary>밤에 아이가 열이 나요. 응급실에 가야 하나요?</summary>
         <p>아이가 잘 놀고 잘 잔다면 대개 집에서 먼저 지켜볼 수 있습니다. 옷을 가볍게 입히고 실내를 22~24도로 서늘하게 맞춘 뒤 미온수를 조금씩 자주 먹여 주세요. 다만 생후 3개월 미만 아기의 38도 이상 발열, 경련, 의식이 처지고 늘어질 때, 해열제를 먹여도 열이 안 떨어지고 심하게 처질 때, 목이 뻣뻣하거나 자주색 반점이 보일 때는 바로 응급실로 가세요.</p>
-        <a class="more" href="/night/#c2">야간 증상 가이드 — 열 자세히 →</a>
+        <a class="more" href="/notes/#night-c2">야간 증상 가이드 — 열 자세히 →</a>
       </details>
       <details>
         <summary>해열제를 번갈아(교차) 먹여도 되나요?</summary>
         <p>성분이 다른 해열제를 번갈아 쓸 때는 제품 설명서의 연령·체중별 용량, 복용 간격, 하루 최대 용량을 반드시 지켜야 합니다. 판단이 어렵다면 소아청소년과 의사나 약사에게 먼저 확인하세요. 열 수치보다 아이의 컨디션을 함께 보는 것이 중요합니다.</p>
-        <a class="more" href="/night/#c2">야간 증상 가이드 — 열 자세히 →</a>
+        <a class="more" href="/notes/#night-c2">야간 증상 가이드 — 열 자세히 →</a>
       </details>
       <details>
         <summary>감기만 걸리면 열부터 나고 오래가요. 한의원에서 볼 수 있나요?</summary>
@@ -446,12 +674,12 @@
       <details>
         <summary>밤에 아이가 갑자기 배가 아프다고 해요. 어떻게 하죠?</summary>
         <p>응급 신호가 없다면 따뜻한 손바닥으로 배꼽 주변을 시계 방향으로 천천히 문질러 주고, 따뜻한 물을 조금씩 마시게 한 뒤 무릎을 굽혀 옆으로 눕혀 주세요. 배를 만지지도 못하게 할 만큼 아파하거나, 오른쪽 아랫배를 특히 아파하거나, 구토가 반복되거나 토사물·변에 피가 섞이거나, 배가 빵빵하게 부풀고 열이 나면 바로 응급실로 가세요.</p>
-        <a class="more" href="/night/#c1">야간 증상 가이드 — 복통 자세히 →</a>
+        <a class="more" href="/notes/#night-c1">야간 증상 가이드 — 복통 자세히 →</a>
       </details>
       <details>
         <summary>아이가 토했어요. 언제부터 먹여도 되나요?</summary>
         <p>토한 직후에는 30분~1시간 정도 위를 쉬게 한 뒤, 미지근한 물이나 전해질 음료를 한두 모금씩 천천히 늘려 가세요. 속이 가라앉으면 죽·미음처럼 부드러운 음식부터 소량씩 시작합니다. 물조차 계속 토하거나, 초록색·피 섞인 토사물, 소변량 감소 같은 탈수 신호가 보이면 응급실로 가세요.</p>
-        <a class="more" href="/night/#c4">야간 증상 가이드 — 구토 자세히 →</a>
+        <a class="more" href="/notes/#night-c4">야간 증상 가이드 — 구토 자세히 →</a>
       </details>
       <details>
         <summary>아이가 자주 체하고 배가 자주 아파요.</summary>
@@ -525,12 +753,12 @@
       <details>
         <summary>고3인데 집중력이 떨어져요. 무엇부터 챙겨야 하나요?</summary>
         <p>수면 시간을 줄이기보다 수면의 질을 지키는 것이 먼저입니다(취침 전 스마트폰 줄이기). 아침은 간단해도 꼭 먹고, 50분 공부 후 10분 스트레칭으로 목·어깨 긴장을 풀고, 카페인 음료는 오후 3시 이후 피해 수면 리듬을 지켜 주세요.</p>
-        <a class="more" href="/night/#c5">야간 증상 가이드 — 수험생 자세히 →</a>
+        <a class="more" href="/notes/#night-c5">야간 증상 가이드 — 수험생 자세히 →</a>
       </details>
       <details>
         <summary>수험생 총명탕은 언제부터 먹으면 좋나요?</summary>
         <p>시험 일정과 학생의 체질·현재 컨디션(소화, 수면, 두통, 긴장도)에 따라 정합니다. 시험 직전에 처음 먹기보다 미리 상담해 몸에 맞는지 확인하고 시험 일정에 맞춘 복용 계획을 세우는 것이 좋습니다.</p>
-        <a class="more" href="/night/#c5">야간 증상 가이드 — 수험생 자세히 →</a>
+        <a class="more" href="/notes/#night-c5">야간 증상 가이드 — 수험생 자세히 →</a>
       </details>
       <details>
         <summary>학원 끝나고 저녁에도 진료받을 수 있나요?</summary>
@@ -660,6 +888,30 @@
 </footer>
 
 <script>
+  // 야간 증상 가이드: 카드 펼침 · 증상 바로가기 · 링크(#night-c1~c5)로 들어오면 해당 카드 열기
+  function openNight(card, scroll){
+    if(!card) return;
+    card.classList.add('open');
+    card.querySelector('.card-head').setAttribute('aria-expanded','true');
+    if(scroll) card.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  document.querySelectorAll('.night-sec .card-head').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.card');
+      var open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.querySelectorAll('.night-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){ openNight(document.getElementById(tab.dataset.jump), true); });
+  });
+  function openFromHash(){
+    var id = location.hash.replace('#','');
+    if(/^night-c\d$/.test(id)){ var el = document.getElementById(id); openNight(el, true); }
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+
   document.querySelectorAll('.filter').forEach(function(btn){
     btn.addEventListener('click', function(){
       document.querySelectorAll('.filter').forEach(function(b){b.classList.remove('on')});

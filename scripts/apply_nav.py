@@ -11,7 +11,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = [  # (주소, 이름)
     ("/hours/", "야간진료 안내"),
     ("/columns/", "칼럼"),
-    ("/night/", "야간 증상 가이드"),
     ("/notes/", "생활한방노트"),
     ("/about/", "원장 소개"),
 ]
