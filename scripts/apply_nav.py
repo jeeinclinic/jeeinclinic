@@ -9,6 +9,7 @@ import html, os, re, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ITEMS = [  # (주소, 이름)
+    ("/mission/", "미션"),
     ("/hours/", "야간진료 안내"),
     ("/columns/", "칼럼"),
     ("/notes/", "생활한방노트"),
