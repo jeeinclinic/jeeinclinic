@@ -122,6 +122,19 @@
   .btn-primary{background:var(--pine);color:#F3F0E4}
   .btn-ghost{background:transparent;color:var(--pine-deep);border:1.5px solid var(--pine)}
 
+  /* mission / vision */
+  .mv-sec{position:relative;overflow:hidden;margin:8px 0 56px;padding:84px 56px 88px;border-radius:24px;background:var(--pine-deep);color:#F3F0E4}
+  .mv-sec::after{content:"知人";position:absolute;right:-10px;bottom:-60px;font-family:'Noto Serif KR',serif;font-weight:700;font-size:320px;line-height:1;color:rgba(240,225,198,.05);pointer-events:none}
+  .mv-eyebrow{font-size:13px;font-weight:700;letter-spacing:4px;color:var(--ochre-soft);opacity:.9}
+  .mv-title{font-family:'Noto Serif KR',serif;font-weight:700;font-size:clamp(26px,4vw,44px);line-height:1.35;margin:16px 0 0;letter-spacing:-.5px;word-break:keep-all}
+  .mv-title em{font-style:normal;color:var(--ochre-soft)}
+  .mv-block{position:relative;z-index:1;margin-top:56px;padding-top:34px;border-top:1px solid rgba(240,225,198,.25)}
+  .mv-tag{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700;letter-spacing:4px;color:var(--ochre)}
+  .mv-tag::before{content:"";width:34px;height:2px;background:var(--ochre)}
+  .mv-block p{font-family:'Noto Serif KR',serif;font-weight:600;font-size:clamp(22px,3.3vw,36px);line-height:1.6;margin:18px 0 0;letter-spacing:-.4px;word-break:keep-all;max-width:22em}
+  .mv-block p em{font-style:normal;color:var(--ochre-soft);border-bottom:2px solid var(--ochre)}
+  @media (max-width:760px){.mv-sec{padding:52px 24px 56px;margin:4px 0 40px;border-radius:18px}.mv-sec::after{font-size:180px;bottom:-30px}.mv-block{margin-top:38px;padding-top:26px}.mv-block p{line-height:1.65}}
+  .mv-sec + .chips-sec{margin-top:0}
   /* symptom chips */
   .chips-sec{margin:-14px 0 56px}
   .chips-sec .lbl{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--ink-soft);margin-bottom:12px}
@@ -272,6 +285,19 @@
     <div class="hero-ctas">
       <a class="btn btn-primary" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener">네이버 예약하기</a>
       <a class="btn btn-ghost" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">카카오톡 상담</a>
+    </div>
+  </section>
+
+  <section class="mv-sec" aria-labelledby="mv-title">
+    <div class="mv-eyebrow">SINCE 2010 · 부천 중동</div>
+    <h2 class="mv-title" id="mv-title">2010년부터 한자리에서 진료해온<br><em>지인한의원</em></h2>
+    <div class="mv-block">
+      <div class="mv-tag">미션 · MISSION</div>
+      <p><em>내 가족, 내 지인을 대하는 마음으로</em> 환자의 지난 치료와 오늘의 상태를 이어 살피며, 정직한 진료로 일상의 건강을 돕습니다.</p>
+    </div>
+    <div class="mv-block">
+      <div class="mv-tag">비전 · VISION</div>
+      <p>매번 설명하지 않아도 <em>내 몸을 기억해 주는,</em> 온 가족이 오래 믿고 찾는 부천의 주치의 한의원</p>
     </div>
   </section>
 
