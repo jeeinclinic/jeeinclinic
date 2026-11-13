@@ -21,7 +21,8 @@ MENU = [
         ("예약", BOOKING),
     ]),
     ("특별한치료법", [
-        ("고농도봉침", "/treatments/"),
+        ("고농도봉침", "/special/high-dose-bee-venom/"),
+        ("약침·매선·도침·정안침", "/treatments/"),
         ("수승화강약침", "/special/suseung-hwagang/"),
         ("의학입문맥진", "/special/uihak-ipmun-maekjin/"),
         ("진단 및 검사", "/special/diagnosis/"),
