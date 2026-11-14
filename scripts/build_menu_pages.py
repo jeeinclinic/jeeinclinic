@@ -7,7 +7,7 @@ import html, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
-from menu_config import MENU  # noqa: E402
+from menu_config import MENU, kid  # noqa: E402
 
 MARK = "<!-- MENU-PLACEHOLDER -->"
 
@@ -80,29 +80,36 @@ TPL = """<!DOCTYPE html>
 """
 
 
+def write(group, label, url, sibs):
+    if not url.startswith("/") or "#" in url or url.count("/") < 2:
+        return 0
+    path = os.path.join(ROOT, url.strip("/"), "index.html")
+    if os.path.exists(path):
+        if MARK not in open(path, encoding="utf-8").read():
+            return 0  # 실제 내용 페이지
+    elif url in ("/mission/", "/about/"):
+        return 0
+    sib = ""
+    if len(sibs) > 1:
+        sib = '  <h2>%s의 다른 안내</h2>\n  <div class="sib">%s</div>' % (
+            html.escape(group), "".join(
+                '<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if u == url else "", html.escape(l))
+                for l, u in sibs if not u.startswith("http")))
+    out = TPL % dict(mark=MARK, label=html.escape(label), url=url, group=html.escape(group), sib=sib)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, "w", encoding="utf-8").write(out)
+    return 1
+
+
 def main():
     made = 0
     for group, kids in MENU:
-        for label, url in kids:
-            if not url.startswith("/") or "#" in url or url.count("/") < 2:
-                continue
-            path = os.path.join(ROOT, url.strip("/"), "index.html")
-            if os.path.exists(path):
-                if MARK not in open(path, encoding="utf-8").read():
-                    continue  # 실제 내용 페이지
-            elif url in ("/mission/", "/about/"):
-                continue
-            sibs = [(l, u) for l, u in kids if len(kids) > 1]
-            sib = ""
-            if len(kids) > 1:
-                sib = '  <h2>%s의 다른 안내</h2>\n  <div class="sib">%s</div>' % (
-                    html.escape(group), "".join(
-                        '<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if u == url else "", html.escape(l))
-                        for l, u in kids if not u.startswith("http")))
-            out = TPL % dict(mark=MARK, label=html.escape(label), url=url, group=html.escape(group), sib=sib)
-            os.makedirs(os.path.dirname(path), exist_ok=True)
-            open(path, "w", encoding="utf-8").write(out)
-            made += 1
+        kids = [kid(k) for k in kids]
+        flat = [(l, u) for l, u, _ in kids]
+        for label, url, subs in kids:
+            made += write(group, label, url, flat)
+            for l2, u2 in subs:
+                made += write(label, l2, u2, subs)
     print("menu placeholder pages: %d" % made)
 
 

@@ -4,7 +4,7 @@
   python3 scripts/build_menu_pages.py   # 아직 내용이 없는 하위 페이지(준비 중 안내) 생성
   python3 scripts/apply_nav.py          # 전 페이지 상단 메뉴 갱신
 
-항목 = (이름, 주소). 이미 만들어진 페이지는 그 주소를 쓰고,
+항목 = (이름, 주소) 또는 (이름, 주소, [3단계 항목들]). 이미 만들어진 페이지는 그 주소를 쓰고,
 없는 페이지는 아래 PLACEHOLDER 주소로 '준비 중' 페이지가 만들어진다(검색 제외).
 실제 내용 페이지를 만들 때는 해당 폴더의 index.html 에서 <!-- MENU-PLACEHOLDER --> 줄을 지우면
 build_menu_pages.py 가 덮어쓰지 않는다.
@@ -75,15 +75,25 @@ MENU = [
         ("탈모", "/hair-loss/"),
     ]),
     ("안이비인후과", [
-        ("눈", "/eent/eye/"),
+        ("눈", "/eent/eye/", [
+            ("안구건조", "/eent/eye/dry-eye/"),
+            ("유루증", "/eent/eye/tearing/"),
+            ("눈떨림", "/eent/eye/eyelid-twitching/"),
+            ("안구피로", "/eent/eye/eye-fatigue/"),
+        ]),
         ("귀", "/eent/ear/"),
         ("인후두부위", "/eent/throat/"),
         ("코", "/rhinitis/"),
     ]),
-    ("기타", [
-        ("기타", "/etc/"),
+    ("보약", [
+        ("보약", "/boyak/"),
     ]),
 ]
 
 # 상위 메뉴 오른쪽에 따로 두는 바로가기
 UTIL = [("칼럼", "/columns/"), ("생활한방노트", "/notes/")]
+
+
+def kid(k):
+    """하위 항목을 (이름, 주소, 3단계목록)으로 통일."""
+    return (k[0], k[1], k[2] if len(k) > 2 else [])

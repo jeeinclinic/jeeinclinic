@@ -10,7 +10,7 @@ import html, os, re, subprocess
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import sys
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
-from menu_config import MENU, UTIL  # noqa: E402
+from menu_config import MENU, UTIL, kid  # noqa: E402
 
 N_START, N_END = "<!-- SITENAV:START -->", "<!-- SITENAV:END -->"
 C_START, C_END = "/* SITENAV:START */", "/* SITENAV:END */"
@@ -30,6 +30,11 @@ CSS = """%s
   .gnb-sub{display:none;position:absolute;left:50%%;top:100%%;transform:translateX(-50%%);min-width:168px;background:#FFFDF4;border:1px solid rgba(34,39,31,.13);border-radius:12px;box-shadow:0 14px 34px rgba(23,35,26,.16);padding:8px;z-index:70}
   .gnb-item:hover>.gnb-sub,.gnb-item:focus-within>.gnb-sub{display:block}
   .gnb-item:nth-last-child(-n+3)>.gnb-sub{left:auto;right:0;transform:none}
+  .gnb-has2{position:relative}
+  .gnb-has2>a::after{content:"›";float:right;margin-left:14px;color:#B8792C;font-weight:700}
+  .gnb-sub2{display:none;position:absolute;left:100%%;top:-9px;min-width:140px;background:#FFFDF4;border:1px solid rgba(34,39,31,.13);border-radius:12px;box-shadow:0 14px 34px rgba(23,35,26,.16);padding:8px}
+  .gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2{display:block}
+  .gnb-item:nth-last-child(-n+3) .gnb-sub2{left:auto;right:100%%}
   .gnb-sub a{display:block;font-size:13.5px;font-weight:500;color:#22271F;padding:9px 12px;border-radius:8px;white-space:nowrap}
   .gnb-sub a:hover,.gnb-sub a:focus{background:#F0E1C6;color:#17231A}
   .gnb-util{display:flex;gap:2px;flex:none}
@@ -49,6 +54,9 @@ CSS = """%s
     .gnb-sub,.gnb-item:hover>.gnb-sub,.gnb-item:focus-within>.gnb-sub{display:none;position:static;transform:none!important;min-width:0;width:100%%;border:0;box-shadow:none;background:#F3F0E4;border-radius:10px;padding:4px 6px;margin:0 0 10px}
     .gnb-item.open>.gnb-sub{display:block}
     .gnb-sub a{padding:11px 10px;font-size:14.5px}
+    .gnb-has2>a::after{display:none}
+    .gnb-sub2,.gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2,.gnb-item:nth-last-child(-n+3) .gnb-sub2{display:block;position:static;min-width:0;border:0;box-shadow:none;background:none;padding:0 0 4px 14px;left:auto;right:auto}
+    .gnb-sub2 a{font-size:13.5px;color:#5D6455}
   }
 %s""" % (C_START, C_END)
 
@@ -70,11 +78,17 @@ def nav_markup(url):
     path = url.split("#")[0]
     items = []
     for group, kids in MENU:
-        cur = " cur" if any(u == path for _, u in kids if not u.startswith("http")) else ""
+        kids = [kid(k) for k in kids]
+        cur = " cur" if any(u == path or any(u2 == path for _, u2 in s) for _, u, s in kids if not u.startswith("http")) else ""
         first = kids[0][1]
         ext = ' target="_blank" rel="noopener"'
-        subs = "".join('<li><a href="%s"%s>%s</a></li>' % (u, ext if u.startswith("http") else "", html.escape(l))
-                       for l, u in kids) if len(kids) > 1 else ""
+        def li(l, u, s):
+            a = '<a href="%s"%s>%s</a>' % (u, ext if u.startswith("http") else "", html.escape(l))
+            if s:
+                return ('<li class="gnb-has2">%s<ul class="gnb-sub2">%s</ul></li>'
+                        % (a, "".join('<li><a href="%s">%s</a></li>' % (u2, html.escape(l2)) for l2, u2 in s)))
+            return "<li>%s</li>" % a
+        subs = "".join(li(l, u, s) for l, u, s in kids) if len(kids) > 1 else ""
         if subs:
             items.append('<li class="gnb-item%s"><a class="gnb-top" href="%s">%s</a>'
                          '<button class="gnb-tg" type="button" aria-expanded="false" aria-label="%s 하위 메뉴"></button>'
