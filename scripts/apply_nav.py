@@ -88,7 +88,7 @@ def nav_markup(url):
                 return ('<li class="gnb-has2">%s<ul class="gnb-sub2">%s</ul></li>'
                         % (a, "".join('<li><a href="%s">%s</a></li>' % (u2, html.escape(l2)) for l2, u2 in s)))
             return "<li>%s</li>" % a
-        subs = "".join(li(l, u, s) for l, u, s in kids) if len(kids) > 1 else ""
+        subs = "".join(li(l, u, s) for l, u, s in kids) if (len(kids) > 1 or kids[0][0] != group) else ""
         if subs:
             items.append('<li class="gnb-item%s"><a class="gnb-top" href="%s">%s</a>'
                          '<button class="gnb-tg" type="button" aria-expanded="false" aria-label="%s 하위 메뉴"></button>'

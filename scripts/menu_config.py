@@ -27,9 +27,8 @@ MENU = [
         ("의학입문맥진", "/special/uihak-ipmun-maekjin/"),
         ("진단 및 검사", "/special/diagnosis/"),
     ]),
-    ("안면마비·삼차신경통", [
-        ("안면부 질환", "/facial-palsy/"),
-        ("삼차신경통", "/trigeminal-neuralgia/"),
+    ("구안와사·삼차신경통", [
+        ("안면부질환", "/facial-palsy/"),
     ]),
     ("자율신경", [
         ("스트레스", "/autonomic/stress/"),
