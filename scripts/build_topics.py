@@ -174,7 +174,7 @@ def build(topic, posts):
   <h1>{topic['h1']}</h1>
   <p class="byline">글·감수 <strong><a href="/about/" style="color:inherit">이은혜</a></strong> 한의사 (지인한의원 대표원장)</p>
 
-  <div class="answer">{topic['answer']}</div>
+{('<div class="answer">' + topic['answer'] + '</div>') if topic['answer'] else ''}
 {er}{topic.get('extra', '')}{sym}{how}{colsec}
   <h2>자주 묻는 질문</h2>
   <div class="faq">
