@@ -74,7 +74,7 @@ MENU = [
         ("피부질환", "/skin/"),
         ("탈모", "/hair-loss/"),
     ]),
-    ("안이비인후과", [
+    ("이비인후과", [
         ("눈", "/eent/eye/", [
             ("안구건조", "/eent/eye/dry-eye/"),
             ("유루증", "/eent/eye/tearing/"),
@@ -97,6 +97,13 @@ MENU = [
             ("목젖부음", "/eent/throat/swollen-uvula/"),
             ("편도선염", "/eent/throat/tonsillitis/"),
             ("편도결석", "/eent/throat/tonsil-stones/"),
+        ]),
+        ("입", "/eent/mouth/", [
+            ("입술포진", "/eent/mouth/cold-sore/"),
+            ("설염", "/eent/mouth/glossitis/"),
+            ("구강건조", "/eent/mouth/dry-mouth/"),
+            ("입냄새", "/eent/mouth/bad-breath/"),
+            ("혀통증", "/eent/mouth/tongue-pain/"),
         ]),
         ("코", "/rhinitis/", [
             ("비염", "/rhinitis/"),
