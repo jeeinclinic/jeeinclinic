@@ -37,9 +37,18 @@ MENU = [
         ]),
     ]),
     ("자율신경", [
-        ("스트레스", "/autonomic/stress/"),
-        ("난치", "/autonomic/intractable/"),
-        ("수면장애", "/autonomic/sleep/"),
+        ("스트레스", "/autonomic/stress/", [
+            ("공황장애", "/autonomic/stress/panic-disorder/"),
+            ("화병", "/autonomic/stress/hwabyung/"),
+            ("하지불안증후군", "/autonomic/stress/restless-legs/"),
+        ]),
+        ("난치", "/autonomic/intractable/", [
+            ("자율신경장애", "/autonomic/intractable/dysautonomia/"),
+        ]),
+        ("수면장애", "/autonomic/sleep/", [
+            ("불면증", "/autonomic/sleep/insomnia/"),
+            ("기면증", "/autonomic/sleep/narcolepsy/"),
+        ]),
     ]),
     ("내과", [
         ("소화장애", "/digestion/"),
