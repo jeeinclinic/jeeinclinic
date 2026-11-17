@@ -108,7 +108,7 @@ def nav_markup(url):
 def files():
     out = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True).stdout.split()
     extra = [os.path.relpath(os.path.join(d, f), ROOT) for d, _, fs in os.walk(ROOT) if ".git" not in d for f in fs if f.endswith(".html")]
-    return sorted(set(out) | set(extra))
+    return sorted(r for r in (set(out) | set(extra)) if os.path.exists(os.path.join(ROOT, r)))
 
 
 def main():

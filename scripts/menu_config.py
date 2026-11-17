@@ -141,7 +141,10 @@ MENU = [
         ]),
     ]),
     ("보약", [
-        ("보약", "/boyak/"),
+        ("원내탕전탕약", "/boyak/decoction/"),
+        ("공진단", "/boyak/gongjindan/"),
+        ("경옥고", "/boyak/gyeongokgo/"),
+        ("다양한 환약", "/boyak/pills/"),
     ]),
 ]
 
