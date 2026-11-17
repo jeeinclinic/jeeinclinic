@@ -98,7 +98,12 @@ MENU = [
             ("헤르페스", "/skin/herpes/"),
             ("화폐상습진", "/skin/nummular-eczema/"),
         ]),
-        ("탈모", "/hair-loss/"),
+        ("탈모", "/hair-loss/", [
+            ("남성형 탈모", "/hair-loss/male-pattern/"),
+            ("여성형 탈모", "/hair-loss/female-pattern/"),
+            ("산후 탈모", "/hair-loss/postpartum/"),
+            ("원형 탈모", "/hair-loss/alopecia-areata/"),
+        ]),
     ]),
     ("이비인후과", [
         ("눈", "/eent/eye/", [
