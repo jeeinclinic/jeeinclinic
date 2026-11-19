@@ -102,7 +102,13 @@ MENU = [
         ]),
     ]),
     ("난임여성", [
-        ("난임", "/fertility/infertility/"),
+        ("난임", "/fertility/infertility/", [
+            ("고령임신(난소나이)", "/fertility/infertility/advanced-age/"),
+            ("남성요인", "/fertility/infertility/male-factor/"),
+            ("시험관 준비 병행", "/fertility/infertility/ivf/"),
+            ("인공수정 준비 병행", "/fertility/infertility/iui/"),
+            ("착상장애", "/fertility/infertility/implantation-disorder/"),
+        ]),
         ("산후", "/postpartum/"),
         ("유산후", "/fertility/after-miscarriage/"),
         ("임신", "/fertility/pregnancy/"),
