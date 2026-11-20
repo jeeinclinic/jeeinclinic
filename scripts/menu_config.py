@@ -29,11 +29,13 @@ MENU = [
     ]),
     ("구안와사·삼차신경통", [
         ("안면부질환", "/facial-palsy/", [
+            ("광대통증", "/face/cheekbone-pain/"),
             ("구안와사", "/facial-palsy/"),
+            ("눈주위통증", "/face/periorbital-pain/"),
             ("삼차신경통", "/trigeminal-neuralgia/"),
-            ("얼굴떨림", "/face/tremor/"),
-            ("얼굴감각장애", "/face/sensory-disorder/"),
             ("안면비대칭", "/face/asymmetry/"),
+            ("얼굴감각장애", "/face/sensory-disorder/"),
+            ("얼굴떨림", "/face/tremor/"),
         ]),
     ]),
     ("자율신경", [
