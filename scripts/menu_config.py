@@ -170,8 +170,21 @@ MENU = [
         ("성장", "/kids/growth/"),
         ("비만", "/kids/obesity/"),
         ("감기", "/kids/cold/"),
-        ("피부아토피", "/kids/atopy/"),
-        ("소아신경정신과", "/kids/neuropsychiatry/"),
+        ("피부아토피", "/kids/atopy/", [
+            ("소아건선", "/kids/atopy/psoriasis/"),
+            ("소아두드러기", "/kids/atopy/urticaria/"),
+            ("소아지루성피부염", "/kids/atopy/seborrheic-dermatitis/"),
+            ("소아태열", "/kids/atopy/taeyeol/"),
+            ("소아한포진", "/kids/atopy/dyshidrosis/"),
+        ]),
+        ("소아신경정신과", "/kids/neuropsychiatry/", [
+            ("소아두통", "/kids/neuropsychiatry/headache/"),
+            ("소아불면", "/kids/neuropsychiatry/insomnia/"),
+            ("소아야경증", "/kids/neuropsychiatry/night-terror/"),
+            ("소아야뇨증", "/kids/neuropsychiatry/enuresis/"),
+            ("소아야제", "/kids/neuropsychiatry/night-crying/"),
+            ("소아틱장애", "/kids/neuropsychiatry/tic-disorder/"),
+        ]),
     ]),
     ("통증", [
         ("교통사고후유증", "/car-accident/"),
