@@ -220,7 +220,8 @@ MENU = [
     ]),
     ("통증", [
         ("교통사고후유증", "/car-accident/"),
-        ("질환", "/pain/", [(n, "/pain/%s/" % s) for n, s, _ in PAIN_PARTS]),
+        ("질환", "/pain/", [(n, "/pain/%s/" % s, [(i, "/pain/%s/%s/" % (s, x)) for i, x in sorted(items)])
+                          for n, s, items in PAIN_PARTS]),
     ]),
     ("다이어트", [
         ("다이어트한약", "/diet/"),

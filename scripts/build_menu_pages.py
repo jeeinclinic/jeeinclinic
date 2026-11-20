@@ -101,15 +101,23 @@ def write(group, label, url, sibs):
     return 1
 
 
+def walk(group, items):
+    """items = [(이름, 주소[, 하위목록])] — 몇 단계든 내려가며 준비 중 페이지를 만든다."""
+    made = 0
+    flat = [(x[0], x[1]) for x in items]
+    for x in items:
+        label, url = x[0], x[1]
+        subs = x[2] if len(x) > 2 else []
+        made += write(group, label, url, flat)
+        if subs:
+            made += walk(label, subs)
+    return made
+
+
 def main():
     made = 0
     for group, kids in MENU:
-        kids = [kid(k) for k in kids]
-        flat = [(l, u) for l, u, _ in kids]
-        for label, url, subs in kids:
-            made += write(group, label, url, flat)
-            for l2, u2 in subs:
-                made += write(label, l2, u2, subs)
+        made += walk(group, [kid(k) if False else k for k in kids])
     print("menu placeholder pages: %d" % made)
 
 

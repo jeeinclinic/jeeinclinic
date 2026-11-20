@@ -35,6 +35,12 @@ CSS = """%s
   .gnb-sub2{display:none;position:absolute;left:100%%;top:-9px;min-width:140px;background:#FFFDF4;border:1px solid rgba(34,39,31,.13);border-radius:12px;box-shadow:0 14px 34px rgba(23,35,26,.16);padding:8px}
   .gnb-sub2.gnb-wide{columns:2;column-gap:6px;min-width:290px}
   .gnb-sub2.gnb-wide li{break-inside:avoid}
+  .gnb-has3{position:relative}
+  .gnb-has3>a{white-space:nowrap}
+  .gnb-has3>a::after{content:"›";float:right;margin-left:14px;color:#B8792C;font-weight:700}
+  .gnb-sub3{display:none;position:absolute;left:100%%;top:-9px;min-width:190px;max-height:70vh;overflow-y:auto;background:#FFFDF4;border:1px solid rgba(34,39,31,.13);border-radius:12px;box-shadow:0 14px 34px rgba(23,35,26,.16);padding:8px}
+  .gnb-has3:hover>.gnb-sub3,.gnb-has3:focus-within>.gnb-sub3{display:block}
+  .gnb-item:nth-last-child(-n+3) .gnb-sub3{left:auto;right:100%%}
   .gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2{display:block}
   .gnb-item:nth-last-child(-n+3) .gnb-sub2{left:auto;right:100%%}
   .gnb-sub a{display:block;font-size:13.5px;font-weight:500;color:#22271F;padding:9px 12px;border-radius:8px;white-space:nowrap}
@@ -60,6 +66,8 @@ CSS = """%s
     .gnb-sub2,.gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2,.gnb-item:nth-last-child(-n+3) .gnb-sub2{display:block;position:static;min-width:0;border:0;box-shadow:none;background:none;padding:0 0 4px 14px;left:auto;right:auto}
     .gnb-sub2.gnb-wide{columns:auto;min-width:0}
     .gnb-sub2 a{font-size:13.5px;color:#5D6455}
+    .gnb-sub3,.gnb-has3:hover>.gnb-sub3,.gnb-has3:focus-within>.gnb-sub3{display:none}
+    .gnb-has3>a::after{display:none}
   }
 %s""" % (C_START, C_END)
 
@@ -82,14 +90,22 @@ def nav_markup(url):
     items = []
     for group, kids in MENU:
         kids = [kid(k) for k in kids]
-        cur = " cur" if any(u == path or any(u2 == path for _, u2 in s) for _, u, s in kids if not u.startswith("http")) else ""
+        cur = " cur" if any(u == path or any(x[1] == path for x in s) for _, u, s in kids if not u.startswith("http")) else ""
         first = kids[0][1]
         ext = ' target="_blank" rel="noopener"'
         def li(l, u, s):
             a = '<a href="%s"%s>%s</a>' % (u, ext if u.startswith("http") else "", html.escape(l))
             if s:
+                nested = any(len(x) > 2 and x[2] for x in s)
+                def li2(x):
+                    l2, u2 = x[0], x[1]
+                    s3 = x[2] if len(x) > 2 else []
+                    if s3:
+                        return ('<li class="gnb-has3"><a href="%s">%s</a><ul class="gnb-sub3">%s</ul></li>'
+                                % (u2, html.escape(l2), "".join('<li><a href="%s">%s</a></li>' % (u3, html.escape(l3)) for l3, u3 in s3)))
+                    return '<li><a href="%s">%s</a></li>' % (u2, html.escape(l2))
                 return ('<li class="gnb-has2">%s<ul class="gnb-sub2%s">%s</ul></li>'
-                        % (a, " gnb-wide" if len(s) > 10 else "", "".join('<li><a href="%s">%s</a></li>' % (u2, html.escape(l2)) for l2, u2 in s)))
+                        % (a, " gnb-wide" if (len(s) > 10 and not nested) else "", "".join(li2(x) for x in s)))
             return "<li>%s</li>" % a
         subs = "".join(li(l, u, s) for l, u, s in kids) if (len(kids) > 1 or kids[0][0] != group) else ""
         if subs:
