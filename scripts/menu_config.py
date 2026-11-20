@@ -169,7 +169,16 @@ MENU = [
     ("소아", [
         ("성장", "/kids/growth/"),
         ("비만", "/kids/obesity/"),
-        ("감기", "/kids/cold/"),
+        ("소아기관지", "/kids/bronchial/", [
+            ("소아감기", "/kids/bronchial/cold/"),
+            ("소아기관지염", "/kids/bronchial/bronchitis/"),
+            ("소아기침", "/kids/bronchial/cough/"),
+            ("소아비염", "/kids/bronchial/rhinitis/"),
+            ("소아중이염", "/kids/bronchial/otitis-media/"),
+            ("소아천식", "/kids/bronchial/asthma/"),
+            ("소아축농증", "/kids/bronchial/sinusitis/"),
+            ("소아폐렴", "/kids/bronchial/pneumonia/"),
+        ]),
         ("피부아토피", "/kids/atopy/", [
             ("소아건선", "/kids/atopy/psoriasis/"),
             ("소아두드러기", "/kids/atopy/urticaria/"),
