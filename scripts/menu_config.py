@@ -168,7 +168,10 @@ MENU = [
     ]),
     ("소아", [
         ("성장", "/kids/growth/"),
-        ("비만", "/kids/obesity/"),
+        ("비만", "/kids/obesity/", [
+            ("성조숙증", "/kids/obesity/precocious-puberty/"),
+            ("소아비만", "/kids/obesity/childhood-obesity/"),
+        ]),
         ("소아기관지", "/kids/bronchial/", [
             ("소아감기", "/kids/bronchial/cold/"),
             ("소아기관지염", "/kids/bronchial/bronchitis/"),
@@ -193,6 +196,17 @@ MENU = [
             ("소아야뇨증", "/kids/neuropsychiatry/enuresis/"),
             ("소아야제", "/kids/neuropsychiatry/night-crying/"),
             ("소아틱장애", "/kids/neuropsychiatry/tic-disorder/"),
+        ]),
+        ("소아소화기내과", "/kids/digestive/", [
+            ("소아과민성장", "/kids/digestive/irritable-bowel/"),
+            ("소아구토", "/kids/digestive/vomiting/"),
+            ("소아멀미", "/kids/digestive/motion-sickness/"),
+            ("소아변비", "/kids/digestive/constipation/"),
+            ("소아복통", "/kids/digestive/abdominal-pain/"),
+            ("소아설사", "/kids/digestive/diarrhea/"),
+            ("소아소화불량", "/kids/digestive/indigestion/"),
+            ("소아식욕부진", "/kids/digestive/anorexia/"),
+            ("소아장염", "/kids/digestive/enteritis/"),
         ]),
     ]),
     ("통증", [
