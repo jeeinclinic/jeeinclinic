@@ -9,6 +9,8 @@
 실제 내용 페이지를 만들 때는 해당 폴더의 index.html 에서 <!-- MENU-PLACEHOLDER --> 줄을 지우면
 build_menu_pages.py 가 덮어쓰지 않는다.
 """
+from pain_config import PAIN_PARTS  # noqa: E402
+
 BOOKING = "https://booking.naver.com/booking/13/bizes/185044"
 
 MENU = [
@@ -218,7 +220,7 @@ MENU = [
     ]),
     ("통증", [
         ("교통사고후유증", "/car-accident/"),
-        ("질환", "/pain/"),
+        ("질환", "/pain/", [(n, "/pain/%s/" % s) for n, s, _ in PAIN_PARTS]),
     ]),
     ("다이어트", [
         ("다이어트한약", "/diet/"),
