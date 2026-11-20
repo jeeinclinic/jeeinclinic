@@ -167,7 +167,12 @@ MENU = [
         ("전립선염", "/men/prostatitis/"),
     ]),
     ("소아", [
-        ("성장", "/kids/growth/"),
+        ("성장", "/kids/growth/", [
+            ("성장통", "/kids/growth/growing-pains/"),
+            ("소아성장", "/kids/growth/child-growth/"),
+            ("소아저체중", "/kids/growth/underweight/"),
+            ("저신장", "/kids/growth/short-stature/"),
+        ]),
         ("비만", "/kids/obesity/", [
             ("성조숙증", "/kids/obesity/precocious-puberty/"),
             ("소아비만", "/kids/obesity/childhood-obesity/"),
