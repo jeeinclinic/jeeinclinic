@@ -14,6 +14,30 @@ from menu_config import MENU, UTIL, kid  # noqa: E402
 
 N_START, N_END = "<!-- SITENAV:START -->", "<!-- SITENAV:END -->"
 C_START, C_END = "/* SITENAV:START */", "/* SITENAV:END */"
+L_START, L_END = "<!-- LANG:START -->", "<!-- LANG:END -->"
+LANGS = [("ko", "한국어"), ("en", "English"), ("zh-CN", "中文"), ("ja", "日本語"), ("th", "ไทย"), ("ru", "Русский")]
+LANG_HTML = (L_START + '<div class="langbar notranslate" translate="no"><div class="langbar-in"><span class="lb-ico" aria-hidden="true">🌐</span>'
+             + "".join('<button type="button" data-l="%s">%s</button>' % x for x in LANGS)
+             + '</div></div><div id="gt-el" style="display:none"></div>' + L_END)
+LANG_JS = L_START + """<script>(function(){var m=document.cookie.match(/googtrans=\\/ko\\/([\\w-]+)/),cur=m?m[1]:'ko';
+document.querySelectorAll('.langbar button').forEach(function(b){if(b.getAttribute('data-l')===cur)b.classList.add('on');
+b.addEventListener('click',function(){var l=b.getAttribute('data-l'),h=location.hostname,x=';path=/',past='expires=Thu, 01 Jan 1970 00:00:00 GMT';
+var ds=[''];if(h.indexOf('.')>0){ds.push(';domain='+h);ds.push(';domain=.'+h.replace(/^www\\./,''))}
+ds.forEach(function(d){document.cookie='googtrans='+(l==='ko'?';'+past:'/ko/'+l)+x+d});location.reload()})});
+if(cur!=='ko'){window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'ko',includedLanguages:'en,zh-CN,ja,th,ru',autoDisplay:false},'gt-el')};
+var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';document.head.appendChild(s)}})();</script>""" + L_END
+LANG_CSS = """
+  .langbar{background:#EAE6D4;border-bottom:1px solid rgba(34,39,31,.1);position:relative;z-index:70}
+  .langbar-in{display:flex;align-items:center;gap:2px;max-width:1180px;margin:0 auto;padding:4px 10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .langbar-in::-webkit-scrollbar{display:none}
+  .lb-ico{font-size:14px;margin-right:4px}
+  .langbar button{border:0;background:none;font:600 12.5px/1 'Noto Sans KR',sans-serif;color:#5D6455;padding:7px 9px;border-radius:8px;cursor:pointer}
+  .langbar button:hover{background:rgba(43,66,50,.08)}
+  .langbar button.on{background:#2B4232;color:#F3F0E4}
+  body{top:0!important}
+  .skiptranslate iframe.goog-te-banner-frame,.goog-te-banner-frame,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+  .goog-text-highlight{background:none!important;box-shadow:none!important}
+"""
 B_START, B_END = "<!-- CBAR:START -->", "<!-- CBAR:END -->"
 BOOKING_URL = "https://booking.naver.com/booking/13/bizes/185044"
 KAKAO_URL = "https://pf.kakao.com/_xmxhmpxj/chat"
@@ -101,7 +125,7 @@ CSS = """%s
     .gnb-sub3 a{font-size:13.5px}
   }
 %s""" % (C_START, C_END)
-CSS = CSS.replace(C_END, CBAR_CSS + C_END)
+CSS = CSS.replace(C_END, CBAR_CSS + LANG_CSS + C_END)
 
 JS = """<script>(function(){var n=document.querySelector('.gnb');if(!n||n.getAttribute('data-js'))return;n.setAttribute('data-js','1');
 var b=n.querySelector('.gnb-burger'),h=document.documentElement;
@@ -174,8 +198,10 @@ def main():
         s = re.sub(r"\n?" + re.escape(C_START) + r".*?" + re.escape(C_END) + r"\n?", "\n", s, flags=re.S)
         s = re.sub(re.escape(B_START) + r".*?" + re.escape(B_END) + r"\n?", "", s, flags=re.S)
         s = re.sub(r'<div class="action-bar">.*?</div>\n?', "", s, flags=re.S)
+        s = re.sub(re.escape(L_START) + r".*?" + re.escape(L_END) + r"\n?", "", s, flags=re.S)
+        s = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + LANG_HTML, s, count=1)
         if "</body>" in s:
-            s = s.replace("</body>", CBAR + "\n</body>", 1)
+            s = s.replace("</body>", CBAR + "\n" + LANG_JS + "\n</body>", 1)
         url = page_url(rel)
         s = s.replace("</style>", CSS + "</style>", 1)
         s = s.replace("</header>", nav_markup(url) + "</header>", 1)

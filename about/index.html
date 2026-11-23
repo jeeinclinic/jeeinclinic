@@ -181,9 +181,21 @@
   .cb-book{background:#F3F0E4;color:#17231A}
   .cb-kakao{background:#FEE500;color:#3C1E1E}
   .cb-map{background:#2B4232;color:#F3F0E4;box-shadow:inset 0 0 0 1px rgba(243,240,228,.35)}
+
+  .langbar{background:#EAE6D4;border-bottom:1px solid rgba(34,39,31,.1);position:relative;z-index:70}
+  .langbar-in{display:flex;align-items:center;gap:2px;max-width:1180px;margin:0 auto;padding:4px 10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .langbar-in::-webkit-scrollbar{display:none}
+  .lb-ico{font-size:14px;margin-right:4px}
+  .langbar button{border:0;background:none;font:600 12.5px/1 'Noto Sans KR',sans-serif;color:#5D6455;padding:7px 9px;border-radius:8px;cursor:pointer}
+  .langbar button:hover{background:rgba(43,66,50,.08)}
+  .langbar button.on{background:#2B4232;color:#F3F0E4}
+  body{top:0!important}
+  .skiptranslate iframe.goog-te-banner-frame,.goog-te-banner-frame,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+  .goog-text-highlight{background:none!important;box-shadow:none!important}
 /* SITENAV:END */</style>
 </head>
 <body>
+<!-- LANG:START --><div class="langbar notranslate" translate="no"><div class="langbar-in"><span class="lb-ico" aria-hidden="true">🌐</span><button type="button" data-l="ko">한국어</button><button type="button" data-l="en">English</button><button type="button" data-l="zh-CN">中文</button><button type="button" data-l="ja">日本語</button><button type="button" data-l="th">ไทย</button><button type="button" data-l="ru">Русский</button></div></div><div id="gt-el" style="display:none"></div><!-- LANG:END -->
 
 <header>
   <div class="topbar">
@@ -275,5 +287,12 @@ window.addEventListener('resize',function(){if(window.innerWidth>=1180)h.classLi
 </footer>
 
 <!-- CBAR:START --><div class="cbar" role="navigation" aria-label="빠른 연락"><div class="cbar-in"><a class="cb-call" href="tel:0507-1387-2933"><i>📞</i>전화</a><a class="cb-book" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener"><i>📅</i>예약</a><a class="cb-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener"><i>💬</i>카톡문의</a><a class="cb-map" href="https://map.naver.com/p/search/%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135" target="_blank" rel="noopener"><i>📍</i>오시는길</a></div></div><!-- CBAR:END -->
+<!-- LANG:START --><script>(function(){var m=document.cookie.match(/googtrans=\/ko\/([\w-]+)/),cur=m?m[1]:'ko';
+document.querySelectorAll('.langbar button').forEach(function(b){if(b.getAttribute('data-l')===cur)b.classList.add('on');
+b.addEventListener('click',function(){var l=b.getAttribute('data-l'),h=location.hostname,x=';path=/',past='expires=Thu, 01 Jan 1970 00:00:00 GMT';
+var ds=[''];if(h.indexOf('.')>0){ds.push(';domain='+h);ds.push(';domain=.'+h.replace(/^www\./,''))}
+ds.forEach(function(d){document.cookie='googtrans='+(l==='ko'?';'+past:'/ko/'+l)+x+d});location.reload()})});
+if(cur!=='ko'){window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'ko',includedLanguages:'en,zh-CN,ja,th,ru',autoDisplay:false},'gt-el')};
+var s=document.createElement('script');s.src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';document.head.appendChild(s)}})();</script><!-- LANG:END -->
 </body>
 </html>
