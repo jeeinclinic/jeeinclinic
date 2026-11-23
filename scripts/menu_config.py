@@ -21,6 +21,7 @@ MENU = [
         ("주차장안내", "/clinic/parking/"),
         ("오시는길", "/#info"),
         ("예약", BOOKING),
+        ("비용안내", "/clinic/fees/"),
     ]),
     ("특별한치료법", [
         ("고농도봉침", "/special/high-dose-bee-venom/"),
@@ -108,6 +109,7 @@ MENU = [
     ("난임여성", [
         ("난임", "/fertility/infertility/", [
             ("고령임신(난소나이)", "/fertility/infertility/advanced-age/"),
+            ("난소기능저하", "/fertility/infertility/diminished-ovarian-reserve/"),
             ("남성요인", "/fertility/infertility/male-factor/"),
             ("시험관 준비 병행", "/fertility/infertility/ivf/"),
             ("인공수정 준비 병행", "/fertility/infertility/iui/"),
@@ -143,7 +145,6 @@ MENU = [
             ("고프로락틴혈증", "/women/hyperprolactinemia/"),
             ("골반염", "/women/pelvic-inflammatory-disease/"),
             ("골반통", "/women/chronic-pelvic-pain/"),
-            ("난소기능저하", "/women/diminished-ovarian-reserve/"),
             ("다낭성난소증후군", "/women/pcos/"),
             ("무월경", "/women/amenorrhea/"),
             ("배란장애", "/women/ovulation-disorder/"),
@@ -232,6 +233,7 @@ MENU = [
             ("가려움", "/skin/itching/"),
             ("건선", "/skin/psoriasis/"),
             ("두드러기", "/skin/urticaria/"),
+            ("두피염", "/skin/scalp-dermatitis/"),
             ("모공각화증", "/skin/keratosis-pilaris/"),
             ("습진", "/skin/eczema/"),
             ("아토피", "/skin/atopy/"),

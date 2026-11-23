@@ -15,8 +15,8 @@ from menu_config import MENU, UTIL, kid  # noqa: E402
 N_START, N_END = "<!-- SITENAV:START -->", "<!-- SITENAV:END -->"
 C_START, C_END = "/* SITENAV:START */", "/* SITENAV:END */"
 L_START, L_END = "<!-- LANG:START -->", "<!-- LANG:END -->"
-LANGS = [("ko", "한국어"), ("en", "English"), ("zh-CN", "中文"), ("ja", "日本語"), ("th", "ไทย"), ("ru", "Русский")]
-LANG_HTML = (L_START + '<div class="langbar notranslate" translate="no"><div class="langbar-in"><span class="lb-ico" aria-hidden="true">🌐</span>'
+LANGS = [("ko", "한국어"), ("en", "English"), ("zh-CN", "简体中文"), ("ja", "日本語"), ("th", "ภาษาไทย"), ("ru", "Русский")]
+LANG_HTML = (L_START + '<div class="langbar notranslate" translate="no"><div class="langbar-in"><span class="lb-ico" aria-label="Language">🌐<span class="lb-txt"> Language</span></span>'
              + "".join('<button type="button" data-l="%s">%s</button>' % x for x in LANGS)
              + '</div></div><div id="gt-el" style="display:none"></div>' + L_END)
 LANG_JS = L_START + """<script>(function(){var m=document.cookie.match(/googtrans=\\/ko\\/([\\w-]+)/),cur=m?m[1]:'ko';
@@ -30,9 +30,10 @@ LANG_CSS = """
   .langbar{background:#EAE6D4;border-bottom:1px solid rgba(34,39,31,.1);position:relative;z-index:70}
   .langbar-in{display:flex;align-items:center;gap:2px;max-width:1180px;margin:0 auto;padding:4px 10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
   .langbar-in::-webkit-scrollbar{display:none}
-  .lb-ico{font-size:14px;margin-right:4px}
+  .lb-ico{font:700 12px/1 'Noto Sans KR',sans-serif;color:#17231A;margin:0 6px 0 2px}
   .langbar button{border:0;background:none;font:600 12.5px/1 'Noto Sans KR',sans-serif;color:#5D6455;padding:7px 9px;border-radius:8px;cursor:pointer}
   .langbar button:hover{background:rgba(43,66,50,.08)}
+  @media (max-width:520px){.lb-txt{display:none}.langbar button{padding:7px 6px;font-size:12px}.lb-ico{margin:0 2px 0 0}}
   .langbar button.on{background:#2B4232;color:#F3F0E4}
   body{top:0!important}
   .skiptranslate iframe.goog-te-banner-frame,.goog-te-banner-frame,#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
