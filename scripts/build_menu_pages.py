@@ -59,7 +59,7 @@ TPL = """<!DOCTYPE html>
 <header>
   <div class="topbar">
     <a class="brand" href="/"><span class="bseal">知人</span><span class="btxt"><span class="b1">지인한의원</span><span class="b2">부천 중동 · JEEIN CLINIC</span></span></a>
-    <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:032-323-2933">032-323-2933</a></span>
+    <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:0507-1387-2933">0507-1387-2933</a></span>
   </div>
 </header>
 <div class="wrap">
@@ -68,7 +68,7 @@ TPL = """<!DOCTYPE html>
   <h1>%(label)s</h1>
   <div class="soon"><strong>안내 페이지를 준비하고 있습니다.</strong><br>자세한 내용은 곧 정리해 드리겠습니다. 그 전에 궁금하신 점은 전화나 카카오톡으로 편하게 문의해 주세요.</div>
   <div class="ctas">
-    <a class="c-call" href="tel:032-323-2933">📞 032-323-2933</a>
+    <a class="c-call" href="tel:0507-1387-2933">📞 0507-1387-2933</a>
     <a class="c-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카카오톡</a>
     <a class="c-naver" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener">네이버 예약</a>
   </div>

@@ -48,35 +48,46 @@ CSS = """%s
   .gnb-util{display:flex;gap:2px;flex:none}
   .gnb-util a{font-size:13px;font-weight:700;color:#5D6455;padding:13px 9px;white-space:nowrap}
   .gnb-util a:hover,.gnb-util a[aria-current]{color:#2B4232}
+  .gnb-tg2,.gnb-close{display:none}
   @media (max-width:1179px){
     .gnb-in{flex-wrap:wrap;padding:0 14px}
     .gnb-burger{display:inline-block}
     .gnb-util{margin-left:auto}
-    .gnb-list{order:3;display:none;flex:0 0 100%%;max-height:68vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background:#FFFDF4;border-top:1px solid rgba(34,39,31,.1);margin:0 -14px;padding:4px 14px 10px;justify-content:flex-start;flex-direction:column;flex-wrap:nowrap}
-    .gnb.open .gnb-list{display:flex}
+    .gnb-list{display:none}
+    html.gnb-open{overflow:hidden}
+    html.gnb-open header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+    .gnb.open .gnb-list{display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;position:fixed;left:0;right:0;top:0;bottom:0;z-index:100;background:#FFFDF4;margin:0;padding:68px 16px 110px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+    .gnb.open .gnb-list::before{content:"전체 메뉴";position:fixed;left:0;right:0;top:0;height:56px;line-height:56px;padding:0 18px;font-weight:900;font-size:17px;color:#17231A;background:#FFFDF4;border-bottom:1px solid rgba(34,39,31,.1);z-index:2}
+    .gnb.open .gnb-close{display:block;position:fixed;top:8px;right:10px;z-index:101;width:44px;height:40px;border:0;border-radius:10px;background:#2B4232;color:#F3F0E4;font-size:20px;line-height:1;cursor:pointer}
     .gnb-item{display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid rgba(34,39,31,.08)}
-    .gnb-top{flex:1;font-size:15px;padding:14px 4px;box-shadow:none!important}
-    .gnb-tg{display:block;flex:none;width:46px;border:0;background:none;cursor:pointer;position:relative}
-    .gnb-tg::after{content:"";position:absolute;left:50%%;top:50%%;width:8px;height:8px;margin:-6px 0 0 -4px;border-right:2px solid #5D6455;border-bottom:2px solid #5D6455;transform:rotate(45deg);transition:transform .15s}
-    .gnb-item.open>.gnb-tg::after{transform:rotate(-135deg);margin-top:-2px}
-    .gnb-sub,.gnb-item:hover>.gnb-sub,.gnb-item:focus-within>.gnb-sub{display:none;position:static;transform:none!important;min-width:0;width:100%%;border:0;box-shadow:none;background:#F3F0E4;border-radius:10px;padding:4px 6px;margin:0 0 10px}
+    .gnb-top{flex:1;font-size:16px;font-weight:700;padding:16px 4px;box-shadow:none!important}
+    .gnb-tg,.gnb-tg2{display:block;flex:none;width:52px;border:0;background:none;cursor:pointer;position:relative}
+    .gnb-tg::after,.gnb-tg2::after{content:"";position:absolute;left:50%%;top:50%%;width:8px;height:8px;margin:-6px 0 0 -4px;border-right:2px solid #5D6455;border-bottom:2px solid #5D6455;transform:rotate(45deg);transition:transform .15s}
+    .gnb-item.open>.gnb-tg::after,.gnb-has2.open>.gnb-tg2::after,.gnb-has3.open>.gnb-tg2::after{transform:rotate(-135deg);margin-top:-2px}
+    .gnb-sub,.gnb-item:hover>.gnb-sub,.gnb-item:focus-within>.gnb-sub{display:none;position:static;transform:none!important;min-width:0;width:100%%;border:0;box-shadow:none;background:#F3F0E4;border-radius:12px;padding:4px 8px;margin:0 0 12px}
     .gnb-item.open>.gnb-sub{display:block}
-    .gnb-sub a{padding:11px 10px;font-size:14.5px}
-    .gnb-has2>a::after{display:none}
-    .gnb-sub2,.gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2,.gnb-item:nth-last-child(-n+3) .gnb-sub2{display:block;position:static;min-width:0;border:0;box-shadow:none;background:none;padding:0 0 4px 14px;left:auto;right:auto}
-    .gnb-sub2.gnb-wide{columns:auto;min-width:0}
-    .gnb-sub2 a{font-size:13.5px;color:#5D6455}
-    .gnb-sub3,.gnb-has3:hover>.gnb-sub3,.gnb-has3:focus-within>.gnb-sub3{display:none}
-    .gnb-has3>a::after{display:none}
+    .gnb-sub a{padding:13px 10px;font-size:15px}
+    .gnb-has2,.gnb-has3{display:flex;flex-wrap:wrap;align-items:center}
+    .gnb-has2>a,.gnb-has3>a{flex:1;white-space:normal}
+    .gnb-has2>a::after,.gnb-has3>a::after{display:none}
+    .gnb-sub2,.gnb-sub3,.gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2,.gnb-has3:hover>.gnb-sub3,.gnb-has3:focus-within>.gnb-sub3,.gnb-item:nth-last-child(-n+3) .gnb-sub2,.gnb-item:nth-last-child(-n+3) .gnb-sub3{display:none;position:static;flex:0 0 100%%;min-width:0;max-height:none;overflow:visible;border:0;box-shadow:none;background:#FFFDF4;border-radius:10px;padding:2px 6px 6px;margin:0 0 6px;left:auto;right:auto;columns:auto}
+    .gnb-has2.open>.gnb-sub2,.gnb-has3.open>.gnb-sub3{display:block}
+    .gnb-has2.open>.gnb-sub2.gnb-wide{display:grid;grid-template-columns:1fr 1fr;column-gap:4px}
+    .gnb-sub2 a,.gnb-sub3 a{font-size:14px;color:#5D6455;padding:12px 8px}
+    .gnb-sub3 a{font-size:13.5px}
   }
 %s""" % (C_START, C_END)
 
 JS = """<script>(function(){var n=document.querySelector('.gnb');if(!n||n.getAttribute('data-js'))return;n.setAttribute('data-js','1');
-var b=n.querySelector('.gnb-burger');b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-n.querySelectorAll('.gnb-tg').forEach(function(t){t.addEventListener('click',function(){var li=t.parentNode,o=li.classList.toggle('open');t.setAttribute('aria-expanded',o)})});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){n.classList.remove('open');b.setAttribute('aria-expanded',false)}});
-document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open')}});
-n.querySelectorAll('a[href^="/#"]').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open')})});
+var b=n.querySelector('.gnb-burger'),h=document.documentElement;
+function setOpen(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);h.classList.toggle('gnb-open',o&&window.innerWidth<1180)}
+b.addEventListener('click',function(){setOpen(!n.classList.contains('open'))});
+var c=n.querySelector('.gnb-close');if(c)c.addEventListener('click',function(){setOpen(false)});
+n.querySelectorAll('.gnb-tg,.gnb-tg2').forEach(function(t){t.addEventListener('click',function(){var li=t.parentNode,o=li.classList.toggle('open');t.setAttribute('aria-expanded',o)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+document.addEventListener('click',function(e){if(!n.contains(e.target)&&n.classList.contains('open'))setOpen(false)});
+n.querySelectorAll('a[href^="/#"]').forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
+window.addEventListener('resize',function(){if(window.innerWidth>=1180)h.classList.remove('gnb-open');else if(n.classList.contains('open'))h.classList.add('gnb-open')});
 })();</script>"""
 
 
@@ -101,11 +112,11 @@ def nav_markup(url):
                     l2, u2 = x[0], x[1]
                     s3 = x[2] if len(x) > 2 else []
                     if s3:
-                        return ('<li class="gnb-has3"><a href="%s">%s</a><ul class="gnb-sub3">%s</ul></li>'
-                                % (u2, html.escape(l2), "".join('<li><a href="%s">%s</a></li>' % (u3, html.escape(l3)) for l3, u3 in s3)))
+                        return ('<li class="gnb-has3"><a href="%s">%s</a><button class="gnb-tg2" type="button" aria-expanded="false" aria-label="%s 하위 메뉴"></button><ul class="gnb-sub3">%s</ul></li>'
+                                % (u2, html.escape(l2), html.escape(l2), "".join('<li><a href="%s">%s</a></li>' % (u3, html.escape(l3)) for l3, u3 in s3)))
                     return '<li><a href="%s">%s</a></li>' % (u2, html.escape(l2))
-                return ('<li class="gnb-has2">%s<ul class="gnb-sub2%s">%s</ul></li>'
-                        % (a, " gnb-wide" if (len(s) > 10 and not nested) else "", "".join(li2(x) for x in s)))
+                return ('<li class="gnb-has2">%s<button class="gnb-tg2" type="button" aria-expanded="false" aria-label="%s 하위 메뉴"></button><ul class="gnb-sub2%s">%s</ul></li>'
+                        % (a, html.escape(l), " gnb-wide" if (len(s) > 10 and not nested) else "", "".join(li2(x) for x in s)))
             return "<li>%s</li>" % a
         subs = "".join(li(l, u, s) for l, u, s in kids) if (len(kids) > 1 or kids[0][0] != group) else ""
         if subs:
@@ -117,7 +128,7 @@ def nav_markup(url):
     util = "".join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if path.startswith(h) else "", html.escape(n)) for n, h in UTIL)
     return ('%s\n<nav class="gnb" aria-label="주요 메뉴"><div class="gnb-in">'
             '<button class="gnb-burger" type="button" aria-expanded="false">☰ 전체 메뉴</button>'
-            '<ul class="gnb-list">%s</ul><div class="gnb-util">%s</div></div></nav>\n%s\n%s\n' % (
+            '<button class="gnb-close" type="button" aria-label="메뉴 닫기">✕</button><ul class="gnb-list">%s</ul><div class="gnb-util">%s</div></div></nav>\n%s\n%s\n' % (
                 N_START, "".join(items), util, JS, N_END))
 
 

@@ -163,7 +163,7 @@ def build(topic, posts):
 <header>
   <div class="topbar">
     <a class="brand" href="/"><span class="bseal">知人</span><span class="btxt"><span class="b1">지인한의원</span><span class="b2">부천 중동 · JEEIN CLINIC</span></span></a>
-    <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:032-323-2933">032-323-2933</a></span>
+    <span style="display:flex;gap:8px;align-items:center"><a class="home-btn" href="/">🏠 홈</a><a class="top-call" href="tel:0507-1387-2933">0507-1387-2933</a></span>
   </div>
 </header>
 
@@ -185,7 +185,7 @@ def build(topic, posts):
     <h3>증상이 반복된다면, 원인부터 확인하세요</h3>
     <p>부천시 원미구 소향로 135, 3층 (부천시청역 2번 출구 도보 3분) · 평일 매일 저녁 8:30까지 · 토 09:00–15:00</p>
     <div class="ctas">
-      <a class="c-call" href="tel:032-323-2933">📞 032-323-2933</a>
+      <a class="c-call" href="tel:0507-1387-2933">📞 0507-1387-2933</a>
       <a class="c-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener">💬 카카오톡</a>
       <a class="c-naver" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener">네이버 예약</a>
     </div>
@@ -205,7 +205,7 @@ def build(topic, posts):
 <footer>
   <div class="wrap">
     <div class="f-brand">지인한의원</div>
-    <p>경기도 부천시 원미구 소향로 135, 3층 · 대표(원장) 이은혜 · 전화 032-323-2933</p>
+    <p>경기도 부천시 원미구 소향로 135, 3층 · 대표(원장) 이은혜 · 전화 0507-1387-2933</p>
     <p>진료시간 — 월~금 09:30–20:30 / 토 09:00–15:00 / 일·공휴일 휴진 (점심시간 없이 진료)</p>
   </div>
 </footer>
