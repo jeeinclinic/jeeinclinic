@@ -101,6 +101,18 @@
     .gnb-sub2 a,.gnb-sub3 a{font-size:14px;color:#5D6455;padding:12px 8px}
     .gnb-sub3 a{font-size:13.5px}
   }
+
+  .topbar .cta,a.cta{white-space:nowrap}
+  @media (max-width:420px){.topbar .cta{padding-left:12px;padding-right:12px;font-size:14px}.topbar .brand small,.topbar .brand .sub{display:none}}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .cbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(23,35,26,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+  .cbar-in{display:flex;gap:6px;max-width:720px;margin:0 auto}
+  .cbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 2px;border-radius:11px;font-size:12.5px;font-weight:800;text-decoration:none;line-height:1.2;white-space:nowrap}
+  .cbar a i{font-style:normal;font-size:16px;line-height:1}
+  .cb-call{background:#B8792C;color:#241804}
+  .cb-book{background:#F3F0E4;color:#17231A}
+  .cb-kakao{background:#FEE500;color:#3C1E1E}
+  .cb-map{background:#2B4232;color:#F3F0E4;box-shadow:inset 0 0 0 1px rgba(243,240,228,.35)}
 /* SITENAV:END */</style>
 </head>
 <body>
@@ -138,5 +150,6 @@ window.addEventListener('resize',function(){if(window.innerWidth>=1180)h.classLi
   <div class="sib"><a href="/women/menopause/">갱년기</a><a href="/women/hyperprolactinemia/">고프로락틴혈증</a><a href="/women/pelvic-inflammatory-disease/">골반염</a><a href="/women/chronic-pelvic-pain/">골반통</a><a href="/women/diminished-ovarian-reserve/">난소기능저하</a><a href="/women/pcos/" aria-current="page">다낭성난소증후군</a><a href="/women/amenorrhea/">무월경</a><a href="/women/ovulation-disorder/">배란장애</a><a href="/women/irregular-bleeding/">부정출혈</a><a href="/women/irregular-period/">생리불순</a><a href="/women/pms/">생리전증후군</a><a href="/women/dysmenorrhea/">생리통</a><a href="/women/dyspareunia/">성교통</a><a href="/women/menorrhagia/">월경과다</a><a href="/women/hypomenorrhea/">월경과소</a><a href="/women/fibroid/">자궁근종</a><a href="/women/endometriosis/">자궁내막증</a><a href="/women/endometrial-hyperplasia/">자궁내막증식증</a><a href="/women/adenomyosis/">자궁선근증</a><a href="/women/vaginal-dryness/">질건조증</a><a href="/women/vaginitis/">질염</a><a href="/women/cervical-dysplasia/">HPV 자궁경부이형성증</a></div>
 </article>
 </div>
+<!-- CBAR:START --><div class="cbar" role="navigation" aria-label="빠른 연락"><div class="cbar-in"><a class="cb-call" href="tel:0507-1387-2933"><i>📞</i>전화</a><a class="cb-book" href="https://booking.naver.com/booking/13/bizes/185044" target="_blank" rel="noopener"><i>📅</i>예약</a><a class="cb-kakao" href="https://pf.kakao.com/_xmxhmpxj/chat" target="_blank" rel="noopener"><i>💬</i>카톡문의</a><a class="cb-map" href="https://map.naver.com/p/search/%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135" target="_blank" rel="noopener"><i>📍</i>오시는길</a></div></div><!-- CBAR:END -->
 </body>
 </html>

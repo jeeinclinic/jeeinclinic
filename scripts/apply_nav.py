@@ -14,6 +14,30 @@ from menu_config import MENU, UTIL, kid  # noqa: E402
 
 N_START, N_END = "<!-- SITENAV:START -->", "<!-- SITENAV:END -->"
 C_START, C_END = "/* SITENAV:START */", "/* SITENAV:END */"
+B_START, B_END = "<!-- CBAR:START -->", "<!-- CBAR:END -->"
+BOOKING_URL = "https://booking.naver.com/booking/13/bizes/185044"
+KAKAO_URL = "https://pf.kakao.com/_xmxhmpxj/chat"
+TEL = "0507-1387-2933"
+MAP_URL = "https://map.naver.com/p/search/%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135"
+CBAR = (B_START + '<div class="cbar" role="navigation" aria-label="빠른 연락"><div class="cbar-in">'
+        '<a class="cb-call" href="tel:%s"><i>📞</i>전화</a>'
+        '<a class="cb-book" href="%s" target="_blank" rel="noopener"><i>📅</i>예약</a>'
+        '<a class="cb-kakao" href="%s" target="_blank" rel="noopener"><i>💬</i>카톡문의</a>'
+        '<a class="cb-map" href="%s" target="_blank" rel="noopener"><i>📍</i>오시는길</a>'
+        '</div></div>' + B_END) % (TEL, BOOKING_URL, KAKAO_URL, MAP_URL)
+CBAR_CSS = """
+  .topbar .cta,a.cta{white-space:nowrap}
+  @media (max-width:420px){.topbar .cta{padding-left:12px;padding-right:12px;font-size:14px}.topbar .brand small,.topbar .brand .sub{display:none}}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .cbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(23,35,26,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+  .cbar-in{display:flex;gap:6px;max-width:720px;margin:0 auto}
+  .cbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:8px 2px;border-radius:11px;font-size:12.5px;font-weight:800;text-decoration:none;line-height:1.2;white-space:nowrap}
+  .cbar a i{font-style:normal;font-size:16px;line-height:1}
+  .cb-call{background:#B8792C;color:#241804}
+  .cb-book{background:#F3F0E4;color:#17231A}
+  .cb-kakao{background:#FEE500;color:#3C1E1E}
+  .cb-map{background:#2B4232;color:#F3F0E4;box-shadow:inset 0 0 0 1px rgba(243,240,228,.35)}
+"""
 
 CSS = """%s
   .gnb{position:relative;border-top:1px solid rgba(34,39,31,.08);font-family:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;line-height:1.3}
@@ -77,6 +101,7 @@ CSS = """%s
     .gnb-sub3 a{font-size:13.5px}
   }
 %s""" % (C_START, C_END)
+CSS = CSS.replace(C_END, CBAR_CSS + C_END)
 
 JS = """<script>(function(){var n=document.querySelector('.gnb');if(!n||n.getAttribute('data-js'))return;n.setAttribute('data-js','1');
 var b=n.querySelector('.gnb-burger'),h=document.documentElement;
@@ -147,6 +172,10 @@ def main():
             continue
         s = re.sub(re.escape(N_START) + r".*?" + re.escape(N_END) + r"\n?", "", src, flags=re.S)
         s = re.sub(r"\n?" + re.escape(C_START) + r".*?" + re.escape(C_END) + r"\n?", "\n", s, flags=re.S)
+        s = re.sub(re.escape(B_START) + r".*?" + re.escape(B_END) + r"\n?", "", s, flags=re.S)
+        s = re.sub(r'<div class="action-bar">.*?</div>\n?', "", s, flags=re.S)
+        if "</body>" in s:
+            s = s.replace("</body>", CBAR + "\n</body>", 1)
         url = page_url(rel)
         s = s.replace("</style>", CSS + "</style>", 1)
         s = s.replace("</header>", nav_markup(url) + "</header>", 1)
