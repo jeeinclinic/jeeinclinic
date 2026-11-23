@@ -277,7 +277,7 @@
   .gnb-util{display:flex;gap:2px;flex:none}
   .gnb-util a{font-size:13px;font-weight:700;color:#5D6455;padding:13px 9px;white-space:nowrap}
   .gnb-util a:hover,.gnb-util a[aria-current]{color:#2B4232}
-  .gnb-tg2,.gnb-close{display:none}
+  .gnb-tg2,.gnb-close,.gnb-all{display:none}
   @media (max-width:1179px){
     .gnb-in{flex-wrap:wrap;padding:0 14px}
     .gnb-burger{display:inline-block}
@@ -292,18 +292,21 @@
     .gnb-top{flex:1;font-size:16px;font-weight:700;padding:16px 4px;box-shadow:none!important}
     .gnb-tg,.gnb-tg2{display:block;flex:none;width:52px;border:0;background:none;cursor:pointer;position:relative}
     .gnb-tg::after,.gnb-tg2::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-6px 0 0 -4px;border-right:2px solid #5D6455;border-bottom:2px solid #5D6455;transform:rotate(45deg);transition:transform .15s}
-    .gnb-item.open>.gnb-tg::after,.gnb-has2.open>.gnb-tg2::after,.gnb-has3.open>.gnb-tg2::after{transform:rotate(-135deg);margin-top:-2px}
+    .gnb-item.open>.gnb-tg::after{transform:rotate(-135deg);margin-top:-2px}
     .gnb-sub,.gnb-item:hover>.gnb-sub,.gnb-item:focus-within>.gnb-sub{display:none;position:static;transform:none!important;min-width:0;width:100%;border:0;box-shadow:none;background:#F3F0E4;border-radius:12px;padding:4px 8px;margin:0 0 12px}
     .gnb-item.open>.gnb-sub{display:block}
     .gnb-sub a{padding:13px 10px;font-size:15px}
-    .gnb-has2,.gnb-has3{display:flex;flex-wrap:wrap;align-items:center}
-    .gnb-has2>a,.gnb-has3>a{flex:1;white-space:normal}
+    .gnb-has2,.gnb-has3{display:block}
+    .gnb-has2>a,.gnb-has3>a{display:block;white-space:normal;font-weight:800;color:#17231A;font-size:14.5px;padding:13px 8px 6px}
+    .gnb-has3>a{font-size:13.5px;color:#2B4232;padding:10px 6px 4px}
     .gnb-has2>a::after,.gnb-has3>a::after{display:none}
-    .gnb-sub2,.gnb-sub3,.gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2,.gnb-has3:hover>.gnb-sub3,.gnb-has3:focus-within>.gnb-sub3,.gnb-item:nth-last-child(-n+3) .gnb-sub2,.gnb-item:nth-last-child(-n+3) .gnb-sub3{display:none;position:static;flex:0 0 100%;min-width:0;max-height:none;overflow:visible;border:0;box-shadow:none;background:#FFFDF4;border-radius:10px;padding:2px 6px 6px;margin:0 0 6px;left:auto;right:auto;columns:auto}
-    .gnb-has2.open>.gnb-sub2,.gnb-has3.open>.gnb-sub3{display:block}
-    .gnb-has2.open>.gnb-sub2.gnb-wide{display:grid;grid-template-columns:1fr 1fr;column-gap:4px}
-    .gnb-sub2 a,.gnb-sub3 a{font-size:14px;color:#5D6455;padding:12px 8px}
+    .gnb-has2>.gnb-tg2,.gnb-has3>.gnb-tg2{display:none}
+    .gnb-sub2,.gnb-sub3,.gnb-has2:hover>.gnb-sub2,.gnb-has2:focus-within>.gnb-sub2,.gnb-has3:hover>.gnb-sub3,.gnb-has3:focus-within>.gnb-sub3,.gnb-item:nth-last-child(-n+3) .gnb-sub2,.gnb-item:nth-last-child(-n+3) .gnb-sub3{display:grid;grid-template-columns:1fr 1fr;column-gap:4px;position:static;min-width:0;max-height:none;overflow:visible;border:0;border-left:2px solid #F0E1C6;box-shadow:none;background:transparent;border-radius:0;padding:0 0 6px 6px;margin:0 0 4px 6px;left:auto;right:auto;columns:auto}
+    .gnb-sub2>.gnb-has3{grid-column:1/-1}
+    .gnb-sub2 a,.gnb-sub3 a{font-size:14px;color:#5D6455;padding:11px 8px}
     .gnb-sub3 a{font-size:13.5px}
+    .gnb-sub>li.gnb-all{display:block}
+    .gnb-sub li.gnb-all a{font-weight:800;color:#2B4232}
   }
 
   .topbar .cta,a.cta{white-space:nowrap}
@@ -318,7 +321,7 @@
   .cb-kakao{background:#FEE500;color:#3C1E1E}
   .cb-map{background:#2B4232;color:#F3F0E4;box-shadow:inset 0 0 0 1px rgba(243,240,228,.35)}
 
-  .langbar{background:#EAE6D4;border-bottom:1px solid rgba(34,39,31,.1);position:relative;z-index:70}
+  .langbar{background:#EAE6D4;border-bottom:1px solid rgba(34,39,31,.1);position:relative;z-index:1}
   .langbar-in{display:flex;align-items:center;gap:2px;max-width:1180px;margin:0 auto;padding:4px 10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
   .langbar-in::-webkit-scrollbar{display:none}
   .lb-ico{font:700 12px/1 'Noto Sans KR',sans-serif;color:#17231A;margin:0 6px 0 2px}
@@ -346,7 +349,13 @@ var b=n.querySelector('.gnb-burger'),h=document.documentElement;
 function setOpen(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);h.classList.toggle('gnb-open',o&&window.innerWidth<1180)}
 b.addEventListener('click',function(){setOpen(!n.classList.contains('open'))});
 var c=n.querySelector('.gnb-close');if(c)c.addEventListener('click',function(){setOpen(false)});
-n.querySelectorAll('.gnb-tg,.gnb-tg2').forEach(function(t){t.addEventListener('click',function(){var li=t.parentNode,o=li.classList.toggle('open');t.setAttribute('aria-expanded',o)})});
+function mob(){return window.innerWidth<1180}
+function toggleItem(li,t){var o=!li.classList.contains('open');if(o)n.querySelectorAll('.gnb-item.open').forEach(function(x){if(x!==li){x.classList.remove('open');var b2=x.querySelector(':scope>.gnb-tg');if(b2)b2.setAttribute('aria-expanded','false')}});li.classList.toggle('open',o);if(t)t.setAttribute('aria-expanded',o);if(o)setTimeout(function(){li.scrollIntoView({block:'start',behavior:'smooth'})},30)}
+n.querySelectorAll('.gnb-item').forEach(function(li){var top=li.querySelector(':scope>.gnb-top'),sub=li.querySelector(':scope>.gnb-sub'),tg=li.querySelector(':scope>.gnb-tg');if(!top||!sub||!tg)return;
+var all=document.createElement('li');all.className='gnb-all';all.innerHTML='<a href="'+top.getAttribute('href')+'">'+top.textContent+' 전체 보기 ›</a>';sub.insertBefore(all,sub.firstChild);
+top.addEventListener('click',function(e){if(!mob())return;e.preventDefault();toggleItem(li,tg)});
+tg.addEventListener('click',function(e){e.stopImmediatePropagation();toggleItem(li,tg)})});
+n.querySelectorAll('.gnb-tg2').forEach(function(t){t.addEventListener('click',function(){var li=t.parentNode,o=li.classList.toggle('open');t.setAttribute('aria-expanded',o)})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
 document.addEventListener('click',function(e){if(!n.contains(e.target)&&n.classList.contains('open'))setOpen(false)});
 n.querySelectorAll('a[href^="/#"]').forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
