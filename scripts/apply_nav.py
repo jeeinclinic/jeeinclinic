@@ -43,13 +43,15 @@ B_START, B_END = "<!-- CBAR:START -->", "<!-- CBAR:END -->"
 BOOKING_URL = "https://booking.naver.com/booking/13/bizes/185044"
 KAKAO_URL = "https://pf.kakao.com/_xmxhmpxj/chat"
 TEL = "0507-1387-2933"
+ORDER_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfnK2I88pY-iicpW94zTQyJfpL3aV9pwmfG7b_Q1U-dsIC29Q/viewform?embedded=true"
 MAP_URL = "https://map.naver.com/p/search/%EC%A7%80%EC%9D%B8%ED%95%9C%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%B2%9C%EC%8B%9C%20%EC%86%8C%ED%96%A5%EB%A1%9C%20135"
 CBAR = (B_START + '<div class="cbar" role="navigation" aria-label="빠른 연락"><div class="cbar-in">'
         '<a class="cb-call" href="tel:%s"><i>📞</i>전화</a>'
         '<a class="cb-book" href="%s" target="_blank" rel="noopener"><i>📅</i>예약</a>'
         '<a class="cb-kakao" href="%s" target="_blank" rel="noopener"><i>💬</i>카톡문의</a>'
         '<a class="cb-map" href="%s" target="_blank" rel="noopener"><i>📍</i>오시는길</a>'
-        '</div></div>' + B_END) % (TEL, BOOKING_URL, KAKAO_URL, MAP_URL)
+        '<a class="cb-order" href="%s" target="_blank" rel="noopener"><i>🛒</i>다이어트환<br>주문</a>'
+        '</div></div>' + B_END) % (TEL, BOOKING_URL, KAKAO_URL, MAP_URL, ORDER_URL)
 CBAR_CSS = """
   .topbar .cta,a.cta{white-space:nowrap}
   @media (max-width:420px){.topbar .cta{padding-left:12px;padding-right:12px;font-size:14px}.topbar .brand small,.topbar .brand .sub{display:none}}
@@ -61,6 +63,7 @@ CBAR_CSS = """
   .cb-call{background:#B8792C;color:#241804}
   .cb-book{background:#F3F0E4;color:#17231A}
   .cb-kakao{background:#FEE500;color:#3C1E1E}
+  .cb-order{background:#E7EFE2;color:#17231A;font-size:11.5px!important;text-align:center}
   .cb-map{background:#2B4232;color:#F3F0E4;box-shadow:inset 0 0 0 1px rgba(243,240,228,.35)}
 """
 
