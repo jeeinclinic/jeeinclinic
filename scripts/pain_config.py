@@ -4,7 +4,7 @@
 """
 PAIN_PARTS = [
     ("머리·두통", "head", [("편두통", "migraine"), ("긴장성두통", "tension-headache"), ("경추성두통", "cervicogenic-headache"),
-        ("후두신경통", "occipital-neuralgia"), ("군발두통", "cluster-headache"), ("만성두통", "chronic-headache")]),
+        ("후두신경통", "occipital-neuralgia"), ("군발두통", "cluster-headache"), ("만성두통", "chronic-headache"), ("브레인포그(멍함)", "brain-fog")]),
     ("턱관절", "jaw", [("턱관절장애", "tmd"), ("턱관절염", "tmj-arthritis"), ("이갈이·이악물기", "bruxism"),
         ("개구장애", "limited-mouth-opening"), ("턱관절잡음", "tmj-noise")]),
     ("목", "neck", [("목디스크", "cervical-disc"), ("거북목", "forward-head"), ("일자목", "straight-neck"),
