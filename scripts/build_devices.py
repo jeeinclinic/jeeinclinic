@@ -248,8 +248,9 @@ def build():
     pledge = "".join("<div><b>%s</b>%s</div>" % (esc(b), esc(t)) for b, t in PLEDGE)
 
     # 허브
-    rows = "".join('<tr><th scope="row"><a href="/special/devices/%s/">%s</a></th><td>%s</td><td>%s</td></tr>'
+    rows = "".join('<tr><th scope="row"><a href="#%s">%s</a></th><td>%s</td><td>%s</td></tr>'
                    % (d[0], esc(d[1]), esc(d[2]), esc(d[3])) for d in D)
+    devices = "\n  ".join(device_block(d, i == 0) for i, d in enumerate(D))
     table = ('<div class="ft-wrap"><table class="ft"><caption>치료기기 한눈에 보기</caption><thead><tr>'
              '<th scope="col">기기</th><th scope="col">원리</th><th scope="col" style="text-align:left">주로 쓰는 때</th></tr></thead>'
              '<tbody>%s</tbody></table></div>' % rows)
@@ -259,6 +260,8 @@ def build():
   <p class="lead">지인한의원은 한의사의 진찰과 침·약 치료를 중심으로, 필요할 때 보조 수단이 되는 치료기기를 함께 사용합니다. 기기마다 어떤 원리인지, 치료 중 어떤 느낌이 드는지, 맞지 않는 경우는 언제인지 환자분이 이해하실 수 있도록 풀어 설명드립니다.</p>
   <h2 class="h2b" style="margin-top:26px">치료기기를 사용하는 원칙</h2>
   <div class="pledge">%s</div>
+  %s
+  <h2 class="h2b" style="margin-top:30px">기기별 안내 Q&amp;A</h2>
   %s
   <h2 class="h2b" style="margin-top:34px">치료기기에 대해 자주 묻는 질문</h2>
   %s
@@ -270,34 +273,13 @@ def build():
   %s
   <h2>특별한치료법의 다른 안내</h2>
   %s
-</article>""" % (pledge, table, general, CTAS, SIB % ' aria-current="page"')
+</article>""" % (pledge, table, devices, general, CTAS, SIB % ' aria-current="page"')
     title = "치료기기 안내 — 체외충격파·전침·간섭파·자기장 | 부천 지인한의원"
     desc = "부천 지인한의원에서 침·약 치료와 함께 보조로 사용하는 치료기기 19종(체외충격파, 추나베드, 전침기, 간섭파, 자기장, 마이크로웨이브 등)의 원리와 사용 방법을 쉽게 설명합니다."
     head, rest = page_head(src, title, desc, "https://jeeinclinic.com/special/devices/")
-    assemble(src, head, rest, hub, ld_json(list(GENERAL)), os.path.join(BASE, "index.html"))
+    assemble(src, head, rest, hub, ld_json([(d[4], " ".join(d[5])) for d in D] + list(GENERAL)), os.path.join(BASE, "index.html"))
 
-    # 기기별
-    chips = "".join('<a href="/special/devices/%s/">%s</a>' % (d[0], esc(d[1].split(" (")[0])) for d in D)
-    for d in D:
-        slug, name = d[0], d[1]
-        art = """<article>
-  <div class="eyebrow">특별한치료법 · 치료기기</div>
-  <h1>%s</h1>
-  <p class="lead">%s을(를) 사용하는 목적과 원리, 치료 중 느낌, 알아두실 점을 안내합니다.</p>
-  %s
-  <h2 class="h2b" style="margin-top:30px">치료기기에 대해 자주 묻는 질문</h2>
-  %s
-  <p class="src">※ 기기 설명은 공개 문헌과 제조사·유통 자료의 일반적인 내용에 근거했으며, 실제 사용 방법과 느낌은 제품·설정에 따라 다를 수 있습니다. 기기의 사용은 질병의 치료 효과를 보장하지 않습니다.</p>
-  %s
-  <h2>다른 치료기기</h2>
-  <div class="sib"><a href="/special/devices/">치료기기 전체 보기</a>%s</div>
-</article>""" % (esc(name), esc(name), device_block(d), general, CTAS, chips)
-        title = "%s — 치료기기 안내 | 부천 지인한의원" % name
-        desc = "%s: %s 부천 지인한의원 치료기기 안내." % (name, d[2])
-        head, rest = page_head(src, title, desc, "https://jeeinclinic.com/special/devices/%s/" % slug)
-        faq = [(d[4], " ".join(d[5]))] + list(GENERAL)
-        assemble(src, head, rest, art, ld_json(faq), os.path.join(BASE, slug, "index.html"))
-    print("devices pages written:", len(D) + 1)
+    print("devices pages written:", 1)
 
 
 if __name__ == "__main__":
