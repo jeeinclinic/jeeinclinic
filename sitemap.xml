@@ -28,4 +28,10 @@
   <url><loc>https://jeeinclinic.com/clinic/fees/</loc><lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jeeinclinic.com/special/high-dose-bee-venom/</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jeeinclinic.com/special/suseung-hwagang/</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://jeeinclinic.com/special/diagnosis/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
