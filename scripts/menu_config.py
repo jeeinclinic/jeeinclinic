@@ -227,6 +227,13 @@ MENU = [
     ("다이어트", [
         ("다이어트한약", "/diet/"),
         ("부분다이어트케어", "/diet/partial-care/"),
+        ("복부비만(내장지방)", "/diet/abdominal-obesity/"),
+        ("부종", "/diet/edema/"),
+        ("요요현상", "/diet/yo-yo-effect/"),
+        ("폭식증(식욕조절장애)", "/diet/appetite-control-disorder/"),
+        ("거식증", "/diet/anorexia/"),
+        ("갱년기비만", "/diet/menopausal-obesity/"),
+        ("소아비만", "/diet/pediatric-obesity/"),
     ]),
     ("피부탈모", [
         ("피부질환", "/skin/", [
